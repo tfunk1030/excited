@@ -1,4 +1,4 @@
-﻿# Cline Custom Instructions
+﻿﻿﻿﻿# Cline Custom Instructions
 
   
 
@@ -108,13 +108,18 @@ Maintain a 'cline_docs' folder in the root directory (create if it doesn't exist
 
 - At the beginning of every task when instructed to "follow your custom instructions", read the essential documents in this order:
 
-  1. projectRoadmap.md (for high-level context and goals)
+  1. projectRoadmap.md (for high-level context and goals)
 
-  2. currentTask.md (for specific current objectives)
+  2. currentTask.md (for specific current objectives)
 
-  3. techStack.md
+  3. techStack.md
 
-  4. codebaseSummary.md
+  4. codebaseSummary.md
+
+  5. If task involves configurations:
+     - Check for relevant reference_configs/README.md in the appropriate directory
+     - Review version compatibility matrix
+     - Check current customizations in codebaseSummary.md
 
 - If you try to read or edit another document before reading these, something BAD will happen.
 
@@ -157,6 +162,33 @@ Maintain a 'cline_docs' folder in the root directory (create if it doesn't exist
 - Organize new projects efficiently, considering project type and dependencies
 
 - Refer to the main Cline system for specific file handling instructions
+
+### Reference Configurations
+
+- Maintain reference configurations in language/framework-specific directories:
+  * Example: mobile/android/reference_configs/ for React Native Android
+  * Example: web/react/reference_configs/ for React web apps
+  * Example: backend/node/reference_configs/ for Node.js services
+
+- Reference configuration directories should include:
+  * All critical configuration files with validated settings
+  * README.md explaining each file's purpose and usage
+  * Version compatibility matrix
+  * Common issues and solutions
+  * Build and validation processes
+
+- When working with configuration files:
+  1. Check for existing reference configurations first
+  2. Compare current files against reference templates
+  3. Use version compatibility matrix to validate versions
+  4. Follow documented build processes
+  5. Update reference files when new best practices emerge
+
+- Document in codebaseSummary.md:
+  * Location of reference configurations
+  * Any deviations from reference templates
+  * Project-specific customizations
+  * Version upgrade history
 
   
 

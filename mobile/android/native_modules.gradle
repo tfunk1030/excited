@@ -1,27 +1,4 @@
-def autolinkedDependencies = []
-def autolinkedPackages = []
-
-def registerAutolinkedDependency(dependency) {
-    if (!autolinkedDependencies.contains(dependency)) {
-        autolinkedDependencies.add(dependency)
-        return true
-    }
-    return false
-}
-
-def registerAutolinkedPackage(packageName) {
-    if (!autolinkedPackages.contains(packageName)) {
-        autolinkedPackages.add(packageName)
-        return true
-    }
-    return false
-}
-
-ext.applyNativeModulesAppBuildGradle = { Project project, String packageName ->
-    def reactNativeModules = new File("$project.buildDir/generated/rn/src/main/java/com/facebook/react/PackageList.java")
-    if (reactNativeModules.exists()) {
-        reactNativeModules.delete()
-    }
+ext.applyNativeModulesAppBuildGradle = { project ->
     apply from: "../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"
     applyNativeModulesAppBuildGradle(project)
 }

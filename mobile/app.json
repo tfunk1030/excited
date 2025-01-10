@@ -1,7 +1,7 @@
 {
   "name": "excited_mobile",
   "displayName": "excited_mobile",
-  "react-native": {
+  "project": {
     "android": {
       "packageName": "com.excited_mobile"
     }

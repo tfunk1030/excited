@@ -1,9 +1,0 @@
-{
-  "name": "excited_mobile",
-  "displayName": "excited_mobile",
-  "react-native": {
-    "android": {
-      "packageName": "com.excited_mobile"
-    }
-  }
-}

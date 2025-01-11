@@ -60,6 +60,7 @@ android {
 }
 
 dependencies {
+    implementation("com.facebook.react:react-native:0.72.7")
     implementation("com.facebook.react:react-android:0.72.7")
     implementation("com.facebook.react:hermes-android:0.72.7")
     implementation project(':react-native-config')

@@ -4,9 +4,7 @@ Write-Host "Stopping Gradle daemon..."
 
 # Clear problematic Gradle caches
 Write-Host "Clearing Gradle caches..."
-Remove-Item -Path "$env:USERPROFILE\.gradle\caches\7.6" -Recurse -Force -ErrorAction SilentlyContinue
-Remove-Item -Path "$env:USERPROFILE\.gradle\caches\8.*" -Recurse -Force -ErrorAction SilentlyContinue
-Remove-Item -Path "$env:USERPROFILE\.gradle\caches\transforms*" -Recurse -Force -ErrorAction SilentlyContinue
+Remove-Item -Path "$env:USERPROFILE\.gradle\caches" -Recurse -Force -ErrorAction SilentlyContinue
 
 # Clean the project
 Write-Host "Cleaning project..."

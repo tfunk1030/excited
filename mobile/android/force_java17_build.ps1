@@ -13,9 +13,7 @@ java -version
 
 # Clean Gradle cache
 Write-Host "Cleaning Gradle cache..."
-Remove-Item -Path "$env:USERPROFILE\.gradle\caches\8.10.2\transforms" -Recurse -Force -ErrorAction SilentlyContinue
-Remove-Item -Path "$env:USERPROFILE\.gradle\caches\transforms-*" -Recurse -Force -ErrorAction SilentlyContinue
-Remove-Item -Path "$env:USERPROFILE\.gradle\caches\build-cache-*" -Recurse -Force -ErrorAction SilentlyContinue
+Remove-Item -Path "$env:USERPROFILE\.gradle\caches" -Recurse -Force -ErrorAction SilentlyContinue
 
 # Clean project
 Write-Host "Cleaning project..."

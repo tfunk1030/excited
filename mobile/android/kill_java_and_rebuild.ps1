@@ -9,7 +9,7 @@ Write-Host "Stopping Gradle daemon..."
 
 # Clean Gradle caches
 Write-Host "Cleaning Gradle caches..."
-Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "C:\Users\tfunk\.gradle\caches"
+Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "$env:USERPROFILE\.gradle\caches"
 Remove-Item -Recurse -Force -ErrorAction SilentlyContinue ".gradle"
 Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "build"
 Remove-Item -Recurse -Force -ErrorAction SilentlyContinue "app\build"

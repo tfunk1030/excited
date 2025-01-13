@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import * as Sentry from '@sentry/react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import BottomTabNavigator from './src/navigation/BottomTabNavigator';
+import { ThemeProvider } from './src/context/ThemeContext';
 
 // Initialize Sentry
 Sentry.init({
@@ -13,11 +14,13 @@ Sentry.init({
 
 function App() {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <NavigationContainer>
-        <BottomTabNavigator />
-      </NavigationContainer>
-    </GestureHandlerRootView>
+    <ThemeProvider>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <NavigationContainer>
+          <BottomTabNavigator />
+        </NavigationContainer>
+      </GestureHandlerRootView>
+    </ThemeProvider>
   );
 }
 

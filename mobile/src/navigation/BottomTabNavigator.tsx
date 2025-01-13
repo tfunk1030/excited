@@ -1,31 +1,18 @@
-import React, { Suspense } from 'react';
-import { View, ActivityIndicator, StyleSheet } from 'react-native';
+import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MainTabParamList } from './types';
-import { theme } from '../styles/theme';
+import { useTheme } from '../context/ThemeContext';
 
-// Lazy load screens
-const ShotScreen = React.lazy(() => import('../screens/Shot/ShotScreen'));
-const WeatherScreen = React.lazy(() => import('../screens/Weather/WeatherScreen'));
-const SettingsScreen = React.lazy(() => import('../screens/Settings/SettingsScreen'));
+// Import screens directly
+import ShotScreen from '../screens/Shot/ShotScreen';
+import WeatherScreen from '../screens/Weather/WeatherScreen';
+import SettingsScreen from '../screens/Settings/SettingsScreen';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
-const LoadingScreen = () => (
-  <View style={styles.loadingContainer}>
-    <ActivityIndicator size="large" color={theme.colors.primary} />
-  </View>
-);
-
-const ScreenWrapper: React.FC<{
-  children: React.ReactNode;
-}> = ({ children }) => (
-  <Suspense fallback={<LoadingScreen />}>
-    {children}
-  </Suspense>
-);
-
 const BottomTabNavigator = () => {
+  const theme = useTheme();
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -69,14 +56,5 @@ const BottomTabNavigator = () => {
     </Tab.Navigator>
   );
 };
-
-const styles = StyleSheet.create({
-  loadingContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: theme.colors.background,
-  },
-});
 
 export default BottomTabNavigator;

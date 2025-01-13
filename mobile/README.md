@@ -1,79 +1,216 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# LastShot Mobile App
 
-# Getting Started
+A React Native mobile application built with Expo for golf shot calculations and weather conditions.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Prerequisites
 
-## Step 1: Start the Metro Server
+- Node.js (v18 or newer)
+- npm or yarn
+- Expo CLI (`npm install -g expo-cli`)
+- EAS CLI (`npm install -g eas-cli`)
+- Expo Go app installed on your mobile device
+- Android Studio with an emulator configured
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Setup
 
-To start Metro, run the following command from the _root_ of your React Native project:
-
+1. Install dependencies:
 ```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+cd mobile
+npm install
 ```
 
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
+2. Install Expo development client:
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+npx expo install expo-dev-client
 ```
 
-### For iOS
-
+3. Install iOS dependencies (if iOS directory exists):
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+npx pod-install
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+4. Configure deep links:
+```bash
+# List current schemes
+npx uri-scheme list
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+# Add your scheme (replace 'lastshot' with your preferred scheme)
+npx uri-scheme add lastshot
+```
 
-## Step 3: Modifying your App
+5. Update index.js to include dev client:
+```javascript
+// Add at the top of index.js, before App import
+import 'expo-dev-client';
+```
 
-Now that you have successfully run the app, let's modify it.
+6. Log in to your Expo account:
+```bash
+eas login
+```
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+7. Configure the project:
+```bash
+eas build:configure
+```
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+## Development
 
-## Congratulations! :tada:
+1. Start the development server:
+```bash
+npx expo start
+```
 
-You've successfully run and modified your React Native App. :partying_face:
+2. Run on a device:
+   - Scan the QR code with Expo Go (Android)
+   - Scan the QR code with Camera app (iOS)
+   - Press 'i' for iOS simulator
+   - For Android emulator:
+     1. First, ensure Android Studio is open
+     2. Start your emulator from Android Studio's Device Manager
+     3. Then press 'a' in the Expo terminal
 
-### Now what?
+### Android Emulator Issues
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+If you see this error when pressing 'a':
+```
+Error: could not connect to TCP port 5554: cannot connect to 127.0.0.1:5554: No connection could be made because the target machine actively refused it. (10061)
+```
 
-# Troubleshooting
+Follow these steps:
+1. Open Android Studio
+2. Go to Tools > Device Manager
+3. Click "Virtual Device Manager"
+4. Start your emulator from here first
+5. Once the emulator is fully loaded, return to your terminal and press 'a'
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+If the error persists:
+1. Close the emulator and Android Studio
+2. Open Task Manager
+3. End any "adb" or "qemu" processes
+4. Restart Android Studio
+5. Start the emulator fresh
+6. Try running the app again
 
-# Learn More
+## Building
 
-To learn more about React Native, take a look at the following resources:
+### Development Build
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+1. Create a development build:
+```bash
+eas build --profile development --platform android
+# or for iOS
+eas build --profile development --platform ios
+```
+
+2. Install the development build:
+```bash
+eas build:run --platform android
+# or for iOS
+eas build:run --platform ios
+```
+
+### Production Build
+
+1. Create a production build:
+```bash
+eas build --profile production --platform android
+# or for iOS
+eas build --profile production --platform ios
+```
+
+2. Submit to stores:
+```bash
+eas submit -p android
+# or for iOS
+eas submit -p ios
+```
+
+## Project Structure
+
+```
+mobile/
+├── app/                 # Expo Router app directory
+│   ├── _layout.tsx     # Root layout with tab navigation
+│   ├── index.tsx       # Last Shot screen
+│   ├── weather.tsx     # Weather screen
+│   ├── shot-calc.tsx   # Shot Calculator screen
+│   └── settings.tsx    # Settings screen
+├── src/
+│   ├── components/     # Reusable components
+│   ├── styles/        # Theme and styling
+│   ├── utils/         # Utility functions
+│   └── types/         # TypeScript types
+└── assets/            # Images, fonts, etc.
+```
+
+## Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+```
+WEATHER_API_KEY=your_weather_api_key
+TOMORROW_API_KEY=your_tomorrow_api_key
+MAPS_API_KEY=your_maps_api_key
+```
+
+## Troubleshooting
+
+1. Metro bundler issues:
+```bash
+npx expo start --clear
+```
+
+2. Bundling Error with NativeAnimatedHelper:
+If you see this error:
+```
+Android Bundling failed: SyntaxError in node_modules\react-native\src\private\animated\NativeAnimatedHelper.js
+```
+Fix by:
+```bash
+# Clear metro and watchman cache
+npx react-native start --reset-cache
+
+# If error persists, try:
+rm -rf node_modules
+npm install
+npx expo start --clear
+```
+
+3. Port connection issues:
+```bash
+# Kill any processes using port 5554 or 9000
+netstat -ano | findstr :5554
+netstat -ano | findstr :9000
+taskkill /PID <PID> /F
+
+# Then restart with specific port
+npx expo start --port 9000
+```
+
+4. Clean project:
+```bash
+npm cache clean --force
+rm -rf node_modules
+rm -rf .expo
+npm install
+```
+
+5. Reset Expo Go cache:
+   - Clear app data (Android)
+   - Delete and reinstall Expo Go (iOS)
+
+6. If bundling errors persist:
+   - Delete the babel cache: `rm -rf node_modules/.cache/babel-loader/*`
+   - Delete metro cache: `rm -rf node_modules/.cache/metro/*`
+   - Reinstall dependencies: `npm install`
+   - Start with clean cache: `npx expo start --clear`
+
+## Contributing
+
+1. Create a feature branch
+2. Make your changes
+3. Submit a pull request
+
+## License
+
+This project is proprietary and confidential.

@@ -16,7 +16,7 @@ const Card = ({ children, style, ...props }: CardProps) => {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: theme.colors.card.background,
+    backgroundColor: theme.colors.background,
     borderRadius: theme.borderRadius.md,
     padding: theme.spacing.md,
     marginBottom: theme.spacing.md,

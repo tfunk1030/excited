@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import * as Location from 'expo-location';
+import Config from 'react-native-config';
 
 export interface WeatherData {
   temperature: number;
@@ -25,7 +26,7 @@ interface WeatherResponse {
   };
 }
 
-const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
+const WEATHER_API_KEY = Config.OPENWEATHER_API_KEY;
 const WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 const calculateAirDensity = (
@@ -106,7 +107,7 @@ export const useWeatherData = () => {
       setError(null);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to fetch weather data');
-      throw err;
+      console.error('Weather fetch error:', err);
     } finally {
       setLoading(false);
     }

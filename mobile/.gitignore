@@ -49,3 +49,11 @@ DerivedData
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+/android
+/ios
+
+# Python virtual environment
+/myenv/
+myenv/
+**/myenv/

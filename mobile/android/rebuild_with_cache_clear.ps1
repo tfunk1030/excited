@@ -1,20 +1,12 @@
-# Stop any running Metro processes
-Get-Process -Name node | Stop-Process -Force
+Write-Host "Cleaning Gradle caches..."
+Remove-Item -Path "$env:USERPROFILE\.gradle\caches" -Recurse -Force
+Remove-Item -Path "android\.gradle" -Recurse -Force
+Remove-Item -Path "android\app\build" -Recurse -Force
 
-# Clean Android build
+Write-Host "Running Gradle clean..."
+Set-Location android
 ./gradlew clean
+Set-Location ..
 
-# Set Metro port
-$env:RCT_METRO_PORT=8081
-
-# Set up reverse port forwarding
-adb reverse tcp:8081 tcp:8081
-
-# Remove build directories and caches
-Remove-Item -Recurse -Force -ErrorAction SilentlyContinue android/app/build
-Remove-Item -Recurse -Force -ErrorAction SilentlyContinue android/.gradle
-Remove-Item -Recurse -Force -ErrorAction SilentlyContinue android/build
-
-# Start Metro with clean cache and run the app
-cd ..
-npx react-native start --reset-cache
+Write-Host "Rebuilding with fresh cache..."
+npx expo prebuild 

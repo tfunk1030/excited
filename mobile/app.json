@@ -1,9 +1,45 @@
 {
-  "name": "excited_mobile",
-  "displayName": "excited_mobile",
-  "project": {
+  "expo": {
+    "name": "excited_mobile",
+    "slug": "excited_mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourcompany.excitedmobile",
+      "jsEngine": "hermes"
+    },
     "android": {
-      "packageName": "com.excited_mobile"
-    }
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.yourcompany.excitedmobile",
+      "jsEngine": "hermes"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "owner": "tfunk1030",
+    "plugins": [
+      [
+        "@sentry/react-native/expo",
+        {
+          "url": "https://sentry.io/",
+          "project": "react-native",
+          "organization": "parprecision"
+        }
+      ]
+    ]
   }
 }

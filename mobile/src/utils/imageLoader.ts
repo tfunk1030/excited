@@ -1,6 +1,5 @@
 import { Image } from 'react-native';
 import { Platform } from 'react-native';
-import FastImage from 'react-native-fast-image';
 
 export interface ImageDimensions {
   width: number;
@@ -34,12 +33,8 @@ export const preloadImages = async (
       urls.map(url => Image.prefetch(url))
     );
   } else {
-    FastImage.preload(
-      urls.map(uri => ({
-        uri,
-        priority: FastImage.priority[options.priority || 'normal'],
-        cache: FastImage.cacheControl[options.cache || 'immutable'],
-      }))
+    await Promise.all(
+      urls.map(url => Image.prefetch(url))
     );
   }
 };

@@ -1,67 +1,25 @@
-import React, { Suspense } from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StyleSheet, View, ActivityIndicator } from 'react-native';
-import { RootStackParamList } from './src/navigation/types';
-import { theme } from './src/styles/theme';
+import * as Sentry from '@sentry/react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import BottomTabNavigator from './src/navigation/BottomTabNavigator';
 
-// Lazy load screens
-const BottomTabNavigator = React.lazy(() => import('./src/navigation/BottomTabNavigator'));
-const ClubManagementScreen = React.lazy(() => import('./src/screens/Settings/ClubManagementScreen'));
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
-
-const LoadingScreen = () => (
-  <View style={styles.loadingContainer}>
-    <ActivityIndicator size="large" color={theme.colors.primary} />
-  </View>
-);
-
-const App = () => {
-  return (
-    <GestureHandlerRootView style={styles.container}>
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <Suspense fallback={<LoadingScreen />}>
-            <Stack.Navigator
-              screenOptions={{
-                headerStyle: {
-                  backgroundColor: theme.colors.background,
-                },
-                headerTintColor: theme.colors.text.primary,
-                headerTitleStyle: theme.typography.h3,
-              }}
-            >
-              <Stack.Screen
-                name="Main"
-                component={BottomTabNavigator}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name="ClubManagement"
-                component={ClubManagementScreen}
-                options={{ title: 'Club Management' }}
-              />
-            </Stack.Navigator>
-          </Suspense>
-        </NavigationContainer>
-      </SafeAreaProvider>
-    </GestureHandlerRootView>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  loadingContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: theme.colors.background,
-  },
+// Initialize Sentry
+Sentry.init({
+  dsn: "https://b8db55279db348ebc52298b98f93d713@o4508523532451840.ingest.us.sentry.io/4508632565219328",
+  debug: __DEV__,
+  enableAutoSessionTracking: true,
 });
 
-export default App;
+function App() {
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <NavigationContainer>
+        <BottomTabNavigator />
+      </NavigationContainer>
+    </GestureHandlerRootView>
+  );
+}
+
+// Wrap the app with Sentry's error boundary
+export default Sentry.wrap(App);

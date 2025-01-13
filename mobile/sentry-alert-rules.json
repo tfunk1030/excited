@@ -1,0 +1,50 @@
+{
+  "rules": [
+    {
+      "name": "Critical Errors",
+      "conditions": [
+        {
+          "id": "sentry.rules.conditions.first_seen_event.FirstSeenEventCondition"
+        },
+        {
+          "id": "sentry.rules.conditions.event_frequency.EventFrequencyCondition",
+          "value": 10,
+          "interval": "1h"
+        }
+      ],
+      "actions": [
+        {
+          "id": "sentry.rules.actions.notify_event.NotifyEventAction",
+          "targetType": "Slack",
+          "targetIdentifier": "YOUR_SLACK_CHANNEL"
+        }
+      ],
+      "frequency": 30
+    },
+    {
+      "name": "Performance Issues",
+      "conditions": [
+        {
+          "id": "sentry.rules.conditions.event_frequency.EventFrequencyCondition",
+          "value": 5,
+          "interval": "5m"
+        }
+      ],
+      "filters": [
+        {
+          "id": "sentry.rules.filters.age_comparison.AgeComparisonFilter",
+          "value": 300,
+          "comparison_type": "gt"
+        }
+      ],
+      "actions": [
+        {
+          "id": "sentry.rules.actions.notify_event.NotifyEventAction",
+          "targetType": "Email",
+          "targetIdentifier": "YOUR_EMAIL"
+        }
+      ],
+      "frequency": 60
+    }
+  ]
+} 

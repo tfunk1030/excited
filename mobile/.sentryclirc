@@ -1,0 +1,6 @@
+[auth]
+token=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
+
+[defaults]
+org=parprecision
+project=react-native 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, memo } from 'react';
 import { View, StyleSheet, ActivityIndicator } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import { Image } from 'expo-image';
 import {
   getImageProps,
   getImageDimensions,
@@ -28,73 +28,43 @@ export const OptimizedImage = memo<OptimizedImageProps>(({
   onLoad,
   onError,
 }) => {
-  const [dimensions, setDimensions] = useState<{ width: number; height: number }>();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error>();
-
-  useEffect(() => {
-    const loadDimensions = async () => {
-      try {
-        setLoading(true);
-        const originalDimensions = await getImageDimensions(source);
-        
-        if (maxWidth || maxHeight) {
-          const scaledDimensions = calculateScaledDimensions(
-            originalDimensions,
-            maxWidth || originalDimensions.width,
-            maxHeight || originalDimensions.height
-          );
-          setDimensions(scaledDimensions);
-        } else {
-          setDimensions(originalDimensions);
-        }
-      } catch (err) {
-        const error = err instanceof Error ? err : new Error('Failed to load image');
-        setError(error);
-        onError?.(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadDimensions();
-  }, [source, maxWidth, maxHeight, onError]);
+  const [error, setError] = useState<Error | null>(null);
+  const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null);
 
   const handleLoad = () => {
     setLoading(false);
     onLoad?.();
   };
 
-  const handleError = () => {
-    const error = new Error('Failed to load image');
-    setError(error);
-    onError?.(error);
+  const handleError = (err: Error) => {
+    setError(err);
+    setLoading(false);
+    onError?.(err);
   };
 
   if (error) {
     return (
       <View style={[styles.errorContainer, style]}>
-        <FastImage
+        <Image
           source={require('../../assets/images/image-error.png')}
           style={styles.errorIcon}
-          resizeMode={FastImage.resizeMode.contain}
+          contentFit="contain"
         />
       </View>
     );
   }
 
-  const imageProps = getImageProps(source, {
-    ...options,
-    dimensions,
-  });
-
   return (
     <View style={[styles.container, style]}>
-      <FastImage
-        {...imageProps}
+      <Image
+        source={source}
+        style={style}
+        placeholder={options.placeholder}
+        contentFit="cover"
+        transition={200}
         onLoad={handleLoad}
         onError={handleError}
-        resizeMode={FastImage.resizeMode.cover}
       />
       {loading && (
         <View style={[StyleSheet.absoluteFill, styles.loadingContainer]}>

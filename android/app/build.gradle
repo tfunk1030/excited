@@ -1,0 +1,17 @@
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.yourapp"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+    implementation project(':react-native-fast-image')
+    implementation "com.facebook.react:react-native:0.76.6"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+} 

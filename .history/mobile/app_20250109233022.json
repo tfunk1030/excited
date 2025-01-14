@@ -1,0 +1,9 @@
+{
+  "name": "excited_mobile",
+  "displayName": "excited_mobile",
+  "project": {
+    "android": {
+      "packageName": "com.excited_mobile"
+    }
+  }
+}

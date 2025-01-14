@@ -1,0 +1,18 @@
+{
+    "sourceFile": "mobile/android/update_to_v8.ps1",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736531847707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736531847707,
+            "name": "Commit-0",
+            "content": "# Create backup first\r\n$timestamp = Get-Date -Format \"yyyyMMdd_HHmmss\"\r\n$backupDir = \"backup_pre_v8_$timestamp\"\r\nWrite-Host \"Creating backup in $backupDir\"\r\nNew-Item -ItemType Directory -Path $backupDir/app -Force\r\nCopy-Item \"build.gradle\" \"$backupDir/\"\r\nCopy-Item \"gradle.properties\" \"$backupDir/\"\r\nCopy-Item \"settings.gradle\" \"$backupDir/\"\r\nCopy-Item \"version.gradle\" \"$backupDir/\"\r\nCopy-Item \"app/build.gradle\" \"$backupDir/app/\"\r\n\r\n# Create restore script in backup directory\r\n@\"\r\n# Restore configuration files\r\nCopy-Item build.gradle ../\r\nCopy-Item gradle.properties ../\r\nCopy-Item settings.gradle ../\r\nCopy-Item version.gradle ../\r\nCopy-Item app/build.gradle ../app/\r\n\"@ | Out-File \"$backupDir/restore_configs.ps1\"\r\n\r\nWrite-Host \"Backup created. Starting updates...\"\r\n\r\n# Update build.gradle\r\n$buildGradle = Get-Content \"build.gradle\" -Raw\r\n$buildGradle = $buildGradle -replace 'androidGradlePluginVersion\\s*=\\s*\"7.3.1\"', 'androidGradlePluginVersion = \"8.1.0\"'\r\n$buildGradle = $buildGradle -replace 'kotlinVersion\\s*=\\s*\"1.7.20\"', 'kotlinVersion = \"1.9.24\"'\r\n$buildGradle | Set-Content \"build.gradle\"\r\n\r\n# Update gradle.properties\r\n$gradleProps = Get-Content \"gradle.properties\" -Raw\r\nif (-not ($gradleProps -match \"android.suppressUnsupportedCompileSdk=34\")) {\r\n    Add-Content \"gradle.properties\" \"`nandroid.suppressUnsupportedCompileSdk=34\"\r\n}\r\nif (-not ($gradleProps -match \"android.disableAutomaticComponentCreation=true\")) {\r\n    Add-Content \"gradle.properties\" \"`nandroid.disableAutomaticComponentCreation=true\"\r\n}\r\n\r\n# Update Java version in app/build.gradle\r\n$appBuildGradle = Get-Content \"app/build.gradle\" -Raw\r\nif (-not ($appBuildGradle -match \"compileOptions {\")) {\r\n    $appBuildGradle += @\"\r\n\r\nandroid {\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_17\r\n        targetCompatibility JavaVersion.VERSION_17\r\n    }\r\n}\r\n\"@\r\n    $appBuildGradle | Set-Content \"app/build.gradle\"\r\n}\r\n\r\nWrite-Host \"Updates completed. Please review the changes in:\"\r\nWrite-Host \"1. build.gradle\"\r\nWrite-Host \"2. gradle.properties\"\r\nWrite-Host \"3. app/build.gradle\"\r\nWrite-Host \"`nTo test the new configuration, run:\"\r\nWrite-Host \"./rebuild_with_cache_clear_v8.ps1\"\r\nWrite-Host \"`nTo rollback if needed:\"\r\nWrite-Host \"cd $backupDir\"\r\nWrite-Host \"./restore_configs.ps1\""
+        }
+    ]
+}

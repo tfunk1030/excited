@@ -1,0 +1,30 @@
+{
+    "sourceFile": "mobile/babel.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1736529581567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736529587341,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+module.exports = {\r\n+  presets: ['module:metro-react-native-babel-preset'],\r\n+  plugins: ['react-native-reanimated/plugin'],\r\n+};\r\n"
+                },
+                {
+                    "date": 1736574237563,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,7 @@\n module.exports = {\r\n   presets: ['module:metro-react-native-babel-preset'],\r\n-  plugins: ['react-native-reanimated/plugin'],\r\n-};\r\n-module.exports = {\r\n-  presets: ['module:metro-react-native-babel-preset'],\r\n   plugins: [\r\n-    'react-native-reanimated/plugin',\r\n-  ],\r\n+    ['@babel/plugin-transform-modules-commonjs', { allowTopLevelThis: true }],\r\n+    'react-native-reanimated/plugin'\r\n+  ]\r\n };\r\n"
+                },
+                {
+                    "date": 1736574254334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+module.exports = {\r\n+  presets: ['module:metro-react-native-babel-preset'],\r\n+  plugins: ['react-native-reanimated/plugin']\r\n+};\r\n"
+                }
+            ],
+            "date": 1736529581567,
+            "name": "Commit-0",
+            "content": "module.exports = {\r\n  presets: ['module:metro-react-native-babel-preset'],\r\n  plugins: [\r\n    'react-native-reanimated/plugin',\r\n  ],\r\n};\r\n"
+        }
+    ]
+}

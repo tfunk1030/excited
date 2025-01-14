@@ -1,0 +1,22 @@
+{
+    "sourceFile": "mobile/android/force_java17_build.ps1",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1736487426419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736498883735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n Write-Host \"Stopping Gradle daemon...\"\r\n ./gradlew --stop\r\n \r\n # Set Java 17 environment variables\r\n-$javaHome = \"C:\\Users\\tfunk\\.gradle\\jdks\\eclipse_adoptium-17-amd64-windows.2\"\r\n+$javaHome = \"C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.13.11-hotspot\"\r\n $env:JAVA_HOME = $javaHome\r\n $env:PATH = \"$javaHome\\bin;$env:PATH\"\r\n \r\n # Verify Java version\r\n"
+                }
+            ],
+            "date": 1736487426419,
+            "name": "Commit-0",
+            "content": "# Kill any running Gradle daemons\r\nWrite-Host \"Stopping Gradle daemon...\"\r\n./gradlew --stop\r\n\r\n# Set Java 17 environment variables\r\n$javaHome = \"C:\\Users\\tfunk\\.gradle\\jdks\\eclipse_adoptium-17-amd64-windows.2\"\r\n$env:JAVA_HOME = $javaHome\r\n$env:PATH = \"$javaHome\\bin;$env:PATH\"\r\n\r\n# Verify Java version\r\nWrite-Host \"Verifying Java version...\"\r\njava -version\r\n\r\n# Clean Gradle cache\r\nWrite-Host \"Cleaning Gradle cache...\"\r\nRemove-Item -Path \"$env:USERPROFILE\\.gradle\\caches\\8.10.2\\transforms\" -Recurse -Force -ErrorAction SilentlyContinue\r\nRemove-Item -Path \"$env:USERPROFILE\\.gradle\\caches\\transforms-*\" -Recurse -Force -ErrorAction SilentlyContinue\r\nRemove-Item -Path \"$env:USERPROFILE\\.gradle\\caches\\build-cache-*\" -Recurse -Force -ErrorAction SilentlyContinue\r\n\r\n# Clean project\r\nWrite-Host \"Cleaning project...\"\r\n./gradlew clean\r\n\r\n# Build project with debug info\r\nWrite-Host \"Building project...\"\r\n./gradlew assembleDebug --info --stacktrace\r\n"
+        }
+    ]
+}

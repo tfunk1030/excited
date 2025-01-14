@@ -1,0 +1,22 @@
+{
+    "sourceFile": "mobile/android/rebuild_with_cache_clear_v8.ps1",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1736531744772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736658703243,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,32 @@\n+# Stop any running Metro processes\r\n+Get-Process -Name node | Stop-Process -Force\r\n+\r\n+# Clean Android build with new Gradle version\r\n+./gradlew clean\r\n+./gradlew cleanBuildCache\r\n+\r\n+# Set Metro port\r\n+$env:RCT_METRO_PORT=8081\r\n+\r\n+# Set Java version for the process\r\n+$env:JAVA_HOME = \"C:\\Program Files\\Java\\jdk-17\"\r\n+\r\n+# Set up reverse port forwarding\r\n+adb reverse tcp:8081 tcp:8081\r\n+\r\n+# Remove build directories and caches\r\n+Remove-Item -Recurse -Force -ErrorAction SilentlyContinue android/app/build\r\n+Remove-Item -Recurse -Force -ErrorAction SilentlyContinue android/.gradle\r\n+Remove-Item -Recurse -Force -ErrorAction SilentlyContinue android/build\r\n+\r\n+# Verify Java version\r\n+Write-Host \"Using Java version:\"\r\n+java -version\r\n+\r\n+# Run validation checks\r\n+./gradlew lint\r\n+./gradlew test\r\n+\r\n+# Start Metro with clean cache\r\n+Set-Location ..\r\n+npx react-native start --reset-cache\r\n"
+                }
+            ],
+            "date": 1736531744772,
+            "name": "Commit-0",
+            "content": "# Stop any running Metro processes\r\nGet-Process -Name node | Stop-Process -Force\r\n\r\n# Clean Android build with new Gradle version\r\n./gradlew clean\r\n./gradlew cleanBuildCache\r\n\r\n# Set Metro port\r\n$env:RCT_METRO_PORT=8081\r\n\r\n# Set Java version for the process\r\n$env:JAVA_HOME = \"C:\\Program Files\\Java\\jdk-17\"\r\n\r\n# Set up reverse port forwarding\r\nadb reverse tcp:8081 tcp:8081\r\n\r\n# Remove build directories and caches\r\nRemove-Item -Recurse -Force -ErrorAction SilentlyContinue android/app/build\r\nRemove-Item -Recurse -Force -ErrorAction SilentlyContinue android/.gradle\r\nRemove-Item -Recurse -Force -ErrorAction SilentlyContinue android/build\r\n\r\n# Verify Java version\r\nWrite-Host \"Using Java version:\"\r\njava -version\r\n\r\n# Run validation checks\r\n./gradlew lint\r\n./gradlew test\r\n\r\n# Start Metro with clean cache\r\ncd ..\r\nnpx react-native start --reset-cache"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "mobile/android/run_after_metro.ps1",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736531550728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736531550728,
+            "name": "Commit-0",
+            "content": "# Ensure port forwarding is set up\r\nadb reverse tcp:8081 tcp:8081\r\n\r\n# Build and run the app\r\n./gradlew clean\r\n./gradlew assembleDebug\r\n./gradlew installDebug\r\n\r\n# Run the app\r\nnpx react-native run-android"
+        }
+    ]
+}

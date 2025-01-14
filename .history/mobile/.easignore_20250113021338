@@ -1,0 +1,13 @@
+# Ignore myenv directory
+myenv/
+../myenv/
+**/myenv/
+
+# Other common excludes
+.git
+.github
+.vscode
+node_modules/
+.expo/
+dist/
+web-build/ 

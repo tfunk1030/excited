@@ -1,0 +1,22 @@
+{
+    "sourceFile": "mobile/app/index.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1736748719033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736748894148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,35 +1,61 @@\n-import { StyleSheet, Text, View } from 'react-native';\r\n+import { useState } from 'react';\r\n+import { StyleSheet, View } from 'react-native';\r\n import { SafeAreaView } from 'react-native-safe-area-context';\r\n+import { ClubDetailsModal } from '../src/components/shared/ClubDetailsModal';\r\n+import { AlternativeClub } from '../src/components/shared/AlternativeClub';\r\n+import { theme } from '../src/styles/theme';\r\n \r\n export default function Index() {\r\n+  const [selectedClub, setSelectedClub] = useState<{\r\n+    club: string;\r\n+    distance: number;\r\n+    adjustedDistance: number;\r\n+    environmentalFactors: {\r\n+      temperature: number;\r\n+      wind: number;\r\n+      altitude: number;\r\n+    };\r\n+    confidence: number;\r\n+    reason?: string;\r\n+  } | null>(null);\r\n+\r\n+  // Example data - replace with your actual data source\r\n+  const alternativeClubs = [\r\n+    { club: '7 Iron', distance: 150, reason: 'More control in wind' },\r\n+    { club: '6 Iron', distance: 165, reason: 'Better for uphill lie' },\r\n+  ];\r\n+\r\n   return (\r\n     <SafeAreaView style={styles.container}>\r\n       <View style={styles.main}>\r\n-        <Text style={styles.title}>Welcome to Excited Mobile</Text>\r\n-        <Text style={styles.subtitle}>Start building your next great app</Text>\r\n+        {alternativeClubs.map((club, index) => (\r\n+          <AlternativeClub\r\n+            key={index}\r\n+            club={club.club}\r\n+            distance={club.distance}\r\n+            reason={club.reason}\r\n+          />\r\n+        ))}\r\n       </View>\r\n+\r\n+      {selectedClub && (\r\n+        <ClubDetailsModal\r\n+          visible={!!selectedClub}\r\n+          onClose={() => setSelectedClub(null)}\r\n+          details={selectedClub}\r\n+        />\r\n+      )}\r\n     </SafeAreaView>\r\n   );\r\n }\r\n \r\n const styles = StyleSheet.create({\r\n   container: {\r\n     flex: 1,\r\n-    backgroundColor: '#fff',\r\n+    backgroundColor: theme.colors.background,\r\n   },\r\n   main: {\r\n     flex: 1,\r\n-    alignItems: 'center',\r\n-    justifyContent: 'center',\r\n-    padding: 20,\r\n+    padding: theme.spacing.md,\r\n   },\r\n-  title: {\r\n-    fontSize: 24,\r\n-    fontWeight: 'bold',\r\n-    marginBottom: 16,\r\n-  },\r\n-  subtitle: {\r\n-    fontSize: 16,\r\n-    color: '#666',\r\n-  },\r\n }); \n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1736748719033,
+            "name": "Commit-0",
+            "content": "import { StyleSheet, Text, View } from 'react-native';\r\nimport { SafeAreaView } from 'react-native-safe-area-context';\r\n\r\nexport default function Index() {\r\n  return (\r\n    <SafeAreaView style={styles.container}>\r\n      <View style={styles.main}>\r\n        <Text style={styles.title}>Welcome to Excited Mobile</Text>\r\n        <Text style={styles.subtitle}>Start building your next great app</Text>\r\n      </View>\r\n    </SafeAreaView>\r\n  );\r\n}\r\n\r\nconst styles = StyleSheet.create({\r\n  container: {\r\n    flex: 1,\r\n    backgroundColor: '#fff',\r\n  },\r\n  main: {\r\n    flex: 1,\r\n    alignItems: 'center',\r\n    justifyContent: 'center',\r\n    padding: 20,\r\n  },\r\n  title: {\r\n    fontSize: 24,\r\n    fontWeight: 'bold',\r\n    marginBottom: 16,\r\n  },\r\n  subtitle: {\r\n    fontSize: 16,\r\n    color: '#666',\r\n  },\r\n}); "
+        }
+    ]
+}

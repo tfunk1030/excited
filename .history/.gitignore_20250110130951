@@ -1,0 +1,15 @@
+# Create new root .gitignore
+@"
+# Root level ignores
+.DS_Store
+.idea/
+.vscode/
+.env
+*.log
+*.pyc
+__pycache__/
+node_modules/
+dist/
+build/
+coverage/
+"@ | Set-Content .gitignore

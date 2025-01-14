@@ -1,0 +1,18 @@
+{
+    "sourceFile": "mobile/android/README.md",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736531605080,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736531605080,
+            "name": "Commit-0",
+            "content": "# Android Build Quick Reference\r\n\r\n## Common Tasks\r\n\r\n### First Time Setup\r\n1. Run complete rebuild with cache clear:\r\n```powershell\r\n./rebuild_with_cache_clear.ps1\r\n```\r\n\r\n2. In a new terminal, run the app:\r\n```powershell\r\n./run_after_metro.ps1\r\n```\r\n\r\n### Daily Development\r\n- Metro is already running: Use `./run_after_metro.ps1`\r\n- Fresh start needed: Use `./rebuild_with_cache_clear.ps1`\r\n\r\n### Backup Current Configuration\r\n```powershell\r\n$timestamp = Get-Date -Format \"yyyyMMdd_HHmmss\"\r\n$backupDir = \"backup_$timestamp\"\r\nNew-Item -ItemType Directory -Path $backupDir/app -Force\r\nCopy-Item \"build.gradle\" \"$backupDir/\"\r\nCopy-Item \"gradle.properties\" \"$backupDir/\"\r\nCopy-Item \"settings.gradle\" \"$backupDir/\"\r\nCopy-Item \"version.gradle\" \"$backupDir/\"\r\nCopy-Item \"app/build.gradle\" \"$backupDir/app/\"\r\n```\r\n\r\n### Restore from Backup\r\n1. Navigate to the backup directory\r\n2. Run `./restore_configs.ps1`\r\n\r\n## Troubleshooting\r\n\r\n### Metro Connection Issues\r\nIf you see \"No apps connected\" warning:\r\n```powershell\r\nadb reverse tcp:8081 tcp:8081\r\n```\r\n\r\n### Build Failures\r\n1. Clean the project:\r\n```powershell\r\n./gradlew clean\r\n```\r\n\r\n2. Remove build directories:\r\n```powershell\r\nRemove-Item -Recurse -Force -ErrorAction SilentlyContinue app/build\r\nRemove-Item -Recurse -Force -ErrorAction SilentlyContinue .gradle\r\nRemove-Item -Recurse -Force -ErrorAction SilentlyContinue build\r\n```\r\n\r\n### For More Details\r\nSee full documentation in `cline_docs/android_build_fixes.md`"
+        }
+    ]
+}

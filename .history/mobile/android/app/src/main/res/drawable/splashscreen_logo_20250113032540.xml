@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="200dp"
+    android:viewportWidth="200"
+    android:viewportHeight="200">
+    
+    <!-- Circle background -->
+    <path
+        android:fillColor="#023c69"
+        android:pathData="M100,100m-80,0a80,80 0,1 1,160 0a80,80 0,1 1,-160 0"/>
+    
+    <!-- Text "EXCITED" -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M50,90h100v20h-100z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M50,60h100v20h-100z"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M50,120h100v20h-100z"/>
+</vector>

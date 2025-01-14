@@ -1,0 +1,30 @@
+{
+    "sourceFile": "mobile/metro.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1736531192828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736531200174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,8 @@\n-const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');\r\n+const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');\r\n \r\n const config = {\r\n-  server: {\r\n-    port: 8081\r\n-  },\r\n-  watchFolders: []\r\n+  server: {port: 8081},\r\n+  watchFolders: [],\r\n };\r\n \r\n module.exports = mergeConfig(getDefaultConfig(__dirname), config);\r\n"
+                },
+                {
+                    "date": 1736574087936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n /**\r\n  * Metro configuration for React Native\r\n  * https://github.com/facebook/react-native\r\n-  server: {port: 8081},\r\n+ *\r\n   watchFolders: [],\r\n };\r\n \r\n module.exports = mergeConfig(getDefaultConfig(__dirname), config);\r\n"
+                },
+                {
+                    "date": 1736574088237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,7 @@\n  * Metro configuration for React Native\r\n  * https://github.com/facebook/react-native\r\n  *\r\n  * @format\r\n-};\r\n+ */\r\n \r\n module.exports = mergeConfig(getDefaultConfig(__dirname), config);\r\n"
+                }
+            ],
+            "date": 1736531192828,
+            "name": "Commit-0",
+            "content": "const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');\r\n\r\nconst config = {\r\n  server: {\r\n    port: 8081\r\n  },\r\n  watchFolders: []\r\n};\r\n\r\nmodule.exports = mergeConfig(getDefaultConfig(__dirname), config);\r\n"
+        }
+    ]
+}

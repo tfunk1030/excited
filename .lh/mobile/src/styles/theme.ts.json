@@ -1,0 +1,18 @@
+{
+    "sourceFile": "mobile/src/styles/theme.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736749219618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736749219618,
+            "name": "Commit-0",
+            "content": "export const theme = {\r\n  colors: {\r\n    primary: '#4B7BF5',\r\n    background: '#1A1D24',\r\n    card: '#242830',\r\n    border: '#2F333D',\r\n    shadow: '#000000',\r\n    error: '#FF4444',\r\n    text: {\r\n      primary: '#FFFFFF',\r\n      secondary: '#8A8D94',\r\n      inverse: '#FFFFFF',\r\n      accent: {\r\n        positive: '#4CAF50',\r\n        negative: '#F44336',\r\n      }\r\n    },\r\n  },\r\n  spacing: {\r\n    xs: 4,\r\n    sm: 8,\r\n    md: 16,\r\n    lg: 24,\r\n    xl: 32,\r\n  },\r\n  typography: {\r\n    h1: {\r\n      fontSize: 48,\r\n      fontWeight: '700',\r\n    },\r\n    h2: {\r\n      fontSize: 32,\r\n      fontWeight: '600',\r\n    },\r\n    h3: {\r\n      fontSize: 24,\r\n      fontWeight: '600',\r\n    },\r\n    body: {\r\n      fontSize: 16,\r\n      fontWeight: '400',\r\n    },\r\n    button: {\r\n      fontSize: 16,\r\n      fontWeight: '600',\r\n    },\r\n    caption: {\r\n      fontSize: 14,\r\n      fontWeight: '400',\r\n    },\r\n  },\r\n};\r\n\r\nexport type Theme = typeof theme;\r\n\r\n// Type-safe font weights\r\nexport type FontWeight = \r\n  | '100' | '200' | '300' | '400' | '500' \r\n  | '600' | '700' | '800' | '900' | 'bold' \r\n  | 'normal';\r\n\r\n// Helper function to ensure type-safe font weights\r\nexport const getFontWeight = (weight: FontWeight): FontWeight => weight;\r\n"
+        }
+    ]
+}

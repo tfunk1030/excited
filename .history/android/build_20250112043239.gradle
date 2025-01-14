@@ -1,0 +1,30 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url = uri("${project.rootDir}/../node_modules/react-native/android") }
+        maven { url = uri("${project.rootDir}/../node_modules/@react-native/gradle-plugin") }
+        maven { url = uri("https://www.jitpack.io") }
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            force "com.facebook.react:react-native:0.72.7"
+            force "org.jetbrains.kotlin:kotlin-stdlib:1.7.20"
+        }
+    }
+}
+
+subprojects {
+    afterEvaluate { project ->
+        if (project.hasProperty("android")) {
+            android {
+                compileOptions {
+                    sourceCompatibility = JavaVersion.VERSION_17
+                    targetCompatibility = JavaVersion.VERSION_17
+                }
+            }
+        }
+    }
+} 

@@ -1,0 +1,47 @@
+buildscript {
+    ext {
+        buildToolsVersion = "35.0.0"
+        minSdkVersion = 21
+        compileSdkVersion = 34
+        targetSdkVersion = 34
+        ndkVersion = "27.0.12077973"
+        kotlinVersion = "1.8.0"
+        androidGradlePluginVersion = "7.4.2"
+        androidPackageName = "com.excited_mobile"
+    }
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url("$rootDir/../node_modules/react-native/android")
+        }
+        maven {
+            url("$rootDir/../node_modules/@react-native/gradle-plugin")
+        }
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:$androidGradlePluginVersion")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url("$rootDir/../node_modules/react-native/android")
+        }
+        maven {
+            url("$rootDir/../node_modules/@react-native/gradle-plugin")
+        }
+        
+        configurations.all {
+            resolutionStrategy {
+                force 'com.facebook.react:react-native:0.72.7'
+                force 'com.facebook.react:react-android:0.72.7'
+            }
+        }
+    }
+}

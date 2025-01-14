@@ -1,0 +1,22 @@
+{
+    "sourceFile": "cline_docs/techStack.md",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1736483155708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736570608921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,70 @@\n+# Technology Stack\r\n+\r\n+## Frontend Technologies\r\n+- React Native (v0.72.7)\r\n+- React Navigation (Bottom Tabs v6.5.11)\r\n+- React Native Safe Area Context (v4.8.2)\r\n+- React Native Screens (v4.4.0)\r\n+- React Native Reanimated (v3.6.1)\r\n+- React Native Fast Image (v8.6.3)\r\n+\r\n+## Backend Technologies\r\n+(To be defined based on project requirements)\r\n+\r\n+## Development Tools\r\n+### Android Build Tools\r\n+- Gradle (v8.10.2)\r\n+- Android Gradle Plugin (v7.3.1)\r\n+- Kotlin (v1.9.24)\r\n+- CMake (v3.31.2)\r\n+- Ninja (v1.12.1)\r\n+\r\n+### Runtime Environment\r\n+- Java:\r\n+  - Launcher JVM: 11.0.2 (Oracle Corporation)\r\n+  - Daemon JVM: Eclipse Adoptium 17\r\n+- Groovy (v3.0.22)\r\n+- Ant (v1.10.14)\r\n+\r\n+### SDK Configuration\r\n+- compileSdkVersion: 34\r\n+- buildToolsVersion: \"35.0.0\"\r\n+- minSdkVersion: 21\r\n+- targetSdkVersion: 34\r\n+\r\n+## Architecture Decisions\r\n+### Android Build Configuration\r\n+- Maintaining reference configurations for consistent builds\r\n+- Version-specific build scripts for different scenarios\r\n+- Strict version control for build tools\r\n+- Comprehensive error recovery procedures\r\n+\r\n+### Development Environment\r\n+- Dual JVM setup for optimal build performance\r\n+- Specific version requirements for all build tools\r\n+- Validated configuration templates\r\n+\r\n+## External Dependencies\r\n+### Core Dependencies\r\n+- React Native and related packages (see Frontend Technologies)\r\n+- Android build tools and SDKs\r\n+- Java Development Kits (JDK 11 and 17)\r\n+\r\n+### Build System\r\n+- Gradle build system with specific version requirements\r\n+- ProGuard for code optimization\r\n+- Custom build scripts for various scenarios\r\n+\r\n+## Infrastructure\r\n+### Local Development\r\n+- Android SDK installation\r\n+- Specific tool versions and locations\r\n+- Environment variable configuration\r\n+- Build cache management\r\n+\r\n+### Build Process\r\n+- Clean build procedures\r\n+- Cache management\r\n+- Version verification\r\n+- Configuration validation\r\n+- Error recovery procedures\r\n"
+                }
+            ],
+            "date": 1736483155708,
+            "name": "Commit-0",
+            "content": "# Technology Stack\r\n\r\n## Frontend Technologies\r\n(To be defined based on project requirements)\r\n\r\n## Backend Technologies\r\n(To be defined based on project requirements)\r\n\r\n## Development Tools\r\n(To be defined based on project requirements)\r\n\r\n## Architecture Decisions\r\n(To be documented as decisions are made)\r\n\r\n## External Dependencies\r\n(To be added as dependencies are introduced)\r\n\r\n## Infrastructure\r\n(To be defined based on project needs)\r\n"
+        }
+    ]
+}

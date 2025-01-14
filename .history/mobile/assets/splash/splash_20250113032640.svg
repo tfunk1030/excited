@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1242" height="2436" viewBox="0 0 1242 2436" xmlns="http://www.w3.org/2000/svg">
+    <!-- Dark background -->
+    <rect width="100%" height="100%" fill="#1A1A1A"/>
+    
+    <!-- Center circle with logo -->
+    <g transform="translate(621,1218)">
+        <!-- Blue circle -->
+        <circle r="200" fill="#023c69"/>
+        
+        <!-- White bars (minimalist "E") -->
+        <rect x="-100" y="-60" width="200" height="30" fill="white"/>
+        <rect x="-100" y="-15" width="200" height="30" fill="white"/>
+        <rect x="-100" y="30" width="200" height="30" fill="white"/>
+    </g>
+</svg>

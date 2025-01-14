@@ -1,0 +1,63 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+// Fix: Removed duplicate maven repository paths and consolidated configuration
+
+buildscript {
+    ext {
+        buildToolsVersion = "34.0.0"
+        minSdkVersion = 21
+        compileSdkVersion = 34
+        targetSdkVersion = 34
+        ndkVersion = "23.1.7779620"
+        kotlinVersion = "1.7.20"
+        androidGradlePluginVersion = "7.4.2"
+        reactNativeVersion = "0.72.7"
+        
+        safeExtGet = { prop, fallback ->
+            rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+        }
+    }
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url = uri("${project.rootDir}/../node_modules/@react-native/gradle-plugin") }
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:${androidGradlePluginVersion}")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+    }
+}
+
+def REACT_NATIVE_VERSION = new File(['node', '--print', "JSON.parse(require('fs').readFileSync(require.resolve('react-native/package.json'), 'utf-8')).version"].execute(null, rootDir).text.trim())
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url = uri("${project.rootDir}/../node_modules/react-native/android") }
+        maven { url = uri("${project.rootDir}/../node_modules/@react-native/gradle-plugin") }
+        maven { url = uri("https://www.jitpack.io") }
+    }
+    
+    configurations.all {
+        resolutionStrategy {
+            force "com.facebook.react:react-native:0.72.7"
+            force "org.jetbrains.kotlin:kotlin-stdlib:1.7.20"
+        }
+    }
+}
+
+subprojects {
+    afterEvaluate { project ->
+        if (project.hasProperty("android")) {
+            android {
+                compileOptions {
+                    sourceCompatibility = JavaVersion.VERSION_17
+                    targetCompatibility = JavaVersion.VERSION_17
+                }
+            }
+        }
+    }
+}

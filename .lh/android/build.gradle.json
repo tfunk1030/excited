@@ -1,0 +1,18 @@
+{
+    "sourceFile": "android/build.gradle",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736674359853,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736674359853,
+            "name": "Commit-0",
+            "content": "allprojects {\r\n    repositories {\r\n        google()\r\n        mavenCentral()\r\n        gradlePluginPortal()\r\n        maven { url = uri(\"${project.rootDir}/../node_modules/react-native/android\") }\r\n        maven { url = uri(\"${project.rootDir}/../node_modules/@react-native/gradle-plugin\") }\r\n        maven { url = uri(\"https://www.jitpack.io\") }\r\n    }\r\n\r\n    configurations.all {\r\n        resolutionStrategy {\r\n            force \"com.facebook.react:react-native:0.72.7\"\r\n            force \"org.jetbrains.kotlin:kotlin-stdlib:1.7.20\"\r\n        }\r\n    }\r\n}\r\n\r\nsubprojects {\r\n    afterEvaluate { project ->\r\n        if (project.hasProperty(\"android\")) {\r\n            android {\r\n                compileOptions {\r\n                    sourceCompatibility = JavaVersion.VERSION_17\r\n                    targetCompatibility = JavaVersion.VERSION_17\r\n                }\r\n            }\r\n        }\r\n    }\r\n} "
+        }
+    ]
+}

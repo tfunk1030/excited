@@ -1,0 +1,19 @@
+rootProject.name = 'excited_mobile'
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+include ':app'
+includeBuild('../node_modules/@react-native/gradle-plugin')
+
+// Add react-native-config with a unique name
+includeBuild('../node_modules/react-native-config') {
+    configuration = ':react-native-config-build'
+}
+
+// Add react-native-async-storage with a unique name
+includeBuild('../node_modules/@react-native-async-storage/async-storage') {
+    configuration = ':react-native-async-storage-build'
+}
+
+// Add react-native-screens with a unique name
+includeBuild('../node_modules/react-native-screens') {
+    configuration = ':react-native-screens-build'
+}

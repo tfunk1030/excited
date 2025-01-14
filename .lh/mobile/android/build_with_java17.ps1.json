@@ -1,0 +1,34 @@
+{
+    "sourceFile": "mobile/android/build_with_java17.ps1",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1736483868092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736484790800,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,19 +1,27 @@\n # Set Java 17 environment\r\n $env:JAVA_HOME = \"C:\\Users\\tfunk\\.gradle\\jdks\\eclipse_adoptium-17-amd64-windows.2\"\r\n $env:PATH = \"$env:JAVA_HOME\\bin;$env:PATH\"\r\n \r\n+function Run-GradleCommand {\r\n+    param (\r\n+        [string]$Command,\r\n+        [string]$Description\r\n+    )\r\n+    Write-Host $Description\r\n+    $env:JAVA_HOME = \"C:\\Users\\tfunk\\.gradle\\jdks\\eclipse_adoptium-17-amd64-windows.2\"\r\n+    $env:PATH = \"$env:JAVA_HOME\\bin;$env:PATH\"\r\n+    ./gradlew $Command\r\n+}\r\n+\r\n # Verify Java version\r\n Write-Host \"Verifying Java version...\"\r\n java -version\r\n \r\n # Clean project\r\n-Write-Host \"Cleaning project...\"\r\n-./gradlew clean\r\n+Run-GradleCommand \"clean\" \"Cleaning project...\"\r\n \r\n # Update Gradle wrapper\r\n-Write-Host \"Updating Gradle wrapper...\"\r\n-./gradlew wrapper --gradle-version 8.10.2\r\n+Run-GradleCommand \"wrapper --gradle-version 8.10.2\" \"Updating Gradle wrapper...\"\r\n \r\n # Build project\r\n-Write-Host \"Building project...\"\r\n-./gradlew build\r\n+Run-GradleCommand \"build\" \"Building project...\"\r\n"
+                },
+                {
+                    "date": 1736484884999,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n     )\r\n     Write-Host $Description\r\n     $env:JAVA_HOME = \"C:\\Users\\tfunk\\.gradle\\jdks\\eclipse_adoptium-17-amd64-windows.2\"\r\n     $env:PATH = \"$env:JAVA_HOME\\bin;$env:PATH\"\r\n+    $env:REACT_NATIVE_PACKAGE_NAME = \"com.excited_mobile\"\r\n     ./gradlew $Command\r\n }\r\n \r\n # Verify Java version\r\n@@ -20,8 +21,10 @@\n # Clean project\r\n Run-GradleCommand \"clean\" \"Cleaning project...\"\r\n \r\n # Update Gradle wrapper\r\n-Run-GradleCommand \"wrapper --gradle-version 8.10.2\" \"Updating Gradle wrapper...\"\r\n+Write-Host \"Updating Gradle wrapper...\"\r\n+./gradlew wrapper\r\n+./gradlew wrapper --gradle-version 8.10.2\r\n \r\n # Build project\r\n Run-GradleCommand \"build\" \"Building project...\"\r\n"
+                },
+                {
+                    "date": 1736485156313,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,30 +1,43 @@\n # Set Java 17 environment\r\n-$env:JAVA_HOME = \"C:\\Users\\tfunk\\.gradle\\jdks\\eclipse_adoptium-17-amd64-windows.2\"\r\n-$env:PATH = \"$env:JAVA_HOME\\bin;$env:PATH\"\r\n+$javaHome = \"C:\\Users\\tfunk\\.gradle\\jdks\\eclipse_adoptium-17-amd64-windows.2\"\r\n \r\n-function Run-GradleCommand {\r\n-    param (\r\n-        [string]$Command,\r\n-        [string]$Description\r\n-    )\r\n-    Write-Host $Description\r\n-    $env:JAVA_HOME = \"C:\\Users\\tfunk\\.gradle\\jdks\\eclipse_adoptium-17-amd64-windows.2\"\r\n-    $env:PATH = \"$env:JAVA_HOME\\bin;$env:PATH\"\r\n-    $env:REACT_NATIVE_PACKAGE_NAME = \"com.excited_mobile\"\r\n-    ./gradlew $Command\r\n+# Verify Java installation\r\n+if (-not (Test-Path $javaHome)) {\r\n+    Write-Error \"Java 17 not found at $javaHome\"\r\n+    exit 1\r\n }\r\n \r\n+# Set environment variables\r\n+$env:JAVA_HOME = $javaHome\r\n+$env:PATH = \"$javaHome\\bin;$env:PATH\"\r\n+\r\n # Verify Java version\r\n Write-Host \"Verifying Java version...\"\r\n java -version\r\n \r\n+# Kill any running Gradle daemons\r\n+Write-Host \"Stopping Gradle daemon...\"\r\n+./gradlew --stop\r\n+\r\n+# Clean Gradle cache\r\n+Write-Host \"Cleaning Gradle cache...\"\r\n+Remove-Item -Recurse -Force -ErrorAction SilentlyContinue \"C:\\Users\\tfunk\\.gradle\\caches\"\r\n+\r\n # Clean project\r\n-Run-GradleCommand \"clean\" \"Cleaning project...\"\r\n+Write-Host \"Cleaning project...\"\r\n+$env:JAVA_HOME = $javaHome\r\n+$env:PATH = \"$javaHome\\bin;$env:PATH\"\r\n+./gradlew clean\r\n \r\n # Update Gradle wrapper\r\n Write-Host \"Updating Gradle wrapper...\"\r\n-./gradlew wrapper\r\n+$env:JAVA_HOME = $javaHome\r\n+$env:PATH = \"$javaHome\\bin;$env:PATH\"\r\n ./gradlew wrapper --gradle-version 8.10.2\r\n \r\n # Build project\r\n-Run-GradleCommand \"build\" \"Building project...\"\r\n+Write-Host \"Building project...\"\r\n+$env:JAVA_HOME = $javaHome\r\n+$env:PATH = \"$javaHome\\bin;$env:PATH\"\r\n+$env:REACT_NATIVE_PACKAGE_NAME = \"com.excited_mobile\"\r\n+./gradlew build --info\r\n"
+                },
+                {
+                    "date": 1736497466646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n # Set Java 17 environment\r\n-$javaHome = \"C:\\Users\\tfunk\\.gradle\\jdks\\eclipse_adoptium-17-amd64-windows.2\"\r\n+$javaHome = \"C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.13.11-hotspot\"\r\n \r\n # Verify Java installation\r\n if (-not (Test-Path $javaHome)) {\r\n     Write-Error \"Java 17 not found at $javaHome\"\r\n"
+                }
+            ],
+            "date": 1736483868092,
+            "name": "Commit-0",
+            "content": "# Set Java 17 environment\r\n$env:JAVA_HOME = \"C:\\Users\\tfunk\\.gradle\\jdks\\eclipse_adoptium-17-amd64-windows.2\"\r\n$env:PATH = \"$env:JAVA_HOME\\bin;$env:PATH\"\r\n\r\n# Verify Java version\r\nWrite-Host \"Verifying Java version...\"\r\njava -version\r\n\r\n# Clean project\r\nWrite-Host \"Cleaning project...\"\r\n./gradlew clean\r\n\r\n# Update Gradle wrapper\r\nWrite-Host \"Updating Gradle wrapper...\"\r\n./gradlew wrapper --gradle-version 8.10.2\r\n\r\n# Build project\r\nWrite-Host \"Building project...\"\r\n./gradlew build\r\n"
+        }
+    ]
+}

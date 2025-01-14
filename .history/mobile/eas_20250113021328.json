@@ -1,0 +1,40 @@
+{
+  "cli": {
+    "version": ">= 5.9.1",
+    "appVersionSource": "local"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "ENVIRONMENT": "development"
+      }
+    },
+    "preview": {
+      "distribution": "internal"
+    },
+    "production": {}
+  },
+  "submit": {
+    "production": {}
+  },
+  "extends": "eas.json",
+  "build-properties": {
+    "ios": {},
+    "android": {}
+  },
+  "experimental": {
+    "args": {
+      "no-verify": true
+    }
+  },
+  "ignorePaths": [
+    "myenv/**/*",
+    "../myenv/**/*",
+    "**/myenv/**/*"
+  ]
+}

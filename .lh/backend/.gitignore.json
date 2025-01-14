@@ -1,0 +1,18 @@
+{
+    "sourceFile": "backend/.gitignore",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736532972773,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736532972773,
+            "name": "Commit-0",
+            "content": "# Python\r\n*.py[cod]\r\n*.so\r\n*.egg\r\n*.egg-info\r\ndist/\r\nbuild/\r\n__pycache__/\r\n.pytest_cache/\r\n.coverage\r\nhtmlcov/\r\n.venv/\r\nvenv/\r\nENV/\r\nenv/\r\n"
+        }
+    ]
+}

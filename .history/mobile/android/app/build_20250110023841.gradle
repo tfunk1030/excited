@@ -1,0 +1,97 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url("$rootDir/../node_modules/@react-native/gradle-plugin") }
+    }
+    dependencies {
+        classpath("com.facebook.react:react-native-gradle-plugin")
+    }
+}
+
+apply plugin: "com.android.application"
+apply plugin: "com.facebook.react"
+
+/**
+ * This is the configuration block for React Native
+ */
+react {
+    root = file("../../")  // Path to your React Native project
+    entryFile = "index.js"
+    enableHermes = true  // Enable for better performance
+}
+
+def enableProguardInReleaseBuilds = false
+def jscFlavor = 'org.webkit:android-jsc:+'
+
+android {
+    namespace "com.excited_mobile"
+    
+    // Use direct values instead of ext properties
+    compileSdkVersion 34
+    buildToolsVersion "35.0.0"
+
+    defaultConfig {
+        applicationId "com.excited_mobile"
+        minSdkVersion 21
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['src/main/java']
+                srcDirs += [
+                    'build/generated/rncli/src/main/java',
+                    'build/generated/source/codegen/java'
+                ]
+                excludes = []
+            }
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file('debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            signingConfig signingConfigs.debug
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    // React Native core dependencies
+    implementation "com.facebook.react:react-android"
+    implementation "com.facebook.react:hermes-android"
+
+    // For animated GIF support
+    implementation "com.facebook.fresco:animated-gif"
+
+    // For WebP support
+    implementation "com.facebook.fresco:webpsupport"
+    implementation "com.facebook.fresco:animated-webp"
+
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.0")
+}
+
+apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)

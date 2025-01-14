@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "excited_mobile",
+    "slug": "excited_mobile",
+    "version": "1.0.0",
+    "scheme": "excited",
+    "icon": "./assets/icon/icon.png",
+    "splash": {
+      "image": "./assets/icon/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1A1A1A"
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "925bca7a-d875-452d-bf16-dea0104bd038"
+      }
+    },
+    "runtimeVersion": "1.0.0",
+    "updates": {
+      "url": "https://u.expo.dev/925bca7a-d875-452d-bf16-dea0104bd038"
+    },
+    "ios": {},
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon/icon.svg",
+        "backgroundColor": "#023c69"
+      },
+      "package": "com.tfunk1030.excited_mobile"
+    },
+    "plugins": [
+      "expo-router"
+    ]
+  }
+}

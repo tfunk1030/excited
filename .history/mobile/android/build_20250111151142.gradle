@@ -1,0 +1,81 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext {
+        buildToolsVersion = "33.0.0"
+        minSdkVersion = 21
+        compileSdkVersion = 34
+        targetSdkVersion = 34
+        ndkVersion = "25.1.8937393"
+        kotlinVersion = "1.9.24"
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:7.4.2")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+    }
+}
+
+def REACT_NATIVE_VERSION = new File(['node', '--print', "JSON.parse(require('fs').readFileSync(require.resolve('react-native/package.json'), 'utf-8')).version"].execute(null, rootDir).text.trim())
+
+allprojects {
+    configurations.all {
+        resolutionStrategy {
+            force 'com.facebook.react:react-native:0.72.7'
+            force 'com.facebook.react:react-android:0.72.7'
+            force 'com.facebook.react:hermes-android:0.72.7'
+            force "org.jetbrains.kotlin:kotlin-stdlib:1.9.24"
+            force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.24"
+            force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.24"
+            force "org.jetbrains.kotlin:kotlin-stdlib-common:1.9.24"
+        }
+    }
+    
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        google()
+        maven { url 'https://www.jitpack.io' }
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url("$rootDir/../node_modules/react-native/android")
+            content {
+                includeGroup "com.facebook.react"
+            }
+        }
+        maven {
+            // Android JSC is installed from npm
+            url("$rootDir/../node_modules/jsc-android/dist")
+        }
+        maven {
+            // Support for Kotlin Gradle plugin
+            url 'https://plugins.gradle.org/m2/'
+        }
+        maven {
+            // Local Maven repo for React Native modules
+            url("${project.rootProject.projectDir}/../node_modules/react-native/android")
+        }
+        maven {
+            // For React Native AsyncStorage
+            url("${project.rootProject.projectDir}/../node_modules/@react-native-async-storage/async-storage/android/build/intermediates/local_aar_for_lint")
+            content {
+                includeGroup "com.facebook.react"
+            }
+        }
+    }
+}
+        resolutionStrategy {
+            force 'com.facebook.react:react-native:0.72.7'
+            force 'com.facebook.react:react-android:0.72.7'
+            force 'com.facebook.react:hermes-android:0.72.7'
+            force "org.jetbrains.kotlin:kotlin-stdlib:1.9.24"
+            force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.24"
+            force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.24"
+            force "org.jetbrains.kotlin:kotlin-stdlib-common:1.9.24"
+        }
+    }
+}

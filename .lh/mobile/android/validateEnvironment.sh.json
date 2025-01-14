@@ -1,0 +1,22 @@
+{
+    "sourceFile": "mobile/android/validateEnvironment.sh",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1736669235922,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736669343176,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,10 @@\n echo \"Validating Android build environment...\"\n \n # Check Java version\n java_version=$(java -version 2>&1 | head -n 1 | cut -d'\"' -f2)\n-if [[ ! $java_version == 11* ]]; then\n-    echo \"Error: Java 11 is required (found $java_version)\"\n+if [[ ! $java_version == 17* ]]; then\n+    echo \"Error: Java 17 is required (found $java_version)\"\n     exit 1\n fi\n \n # Check Gradle version\n"
+                }
+            ],
+            "date": 1736669235922,
+            "name": "Commit-0",
+            "content": "#!/bin/bash\n\necho \"Validating Android build environment...\"\n\n# Check Java version\njava_version=$(java -version 2>&1 | head -n 1 | cut -d'\"' -f2)\nif [[ ! $java_version == 11* ]]; then\n    echo \"Error: Java 11 is required (found $java_version)\"\n    exit 1\nfi\n\n# Check Gradle version\ngradle_version=$(./gradlew -v | grep \"Gradle\" | cut -d' ' -f2)\nif [[ ! $gradle_version == 7.6* ]]; then\n    echo \"Error: Gradle 7.6.x is required (found $gradle_version)\"\n    exit 1\nfi\n\n# Verify NDK installation\nif [ ! -d \"$ANDROID_HOME/ndk/23.1.7779620\" ]; then\n    echo \"Error: NDK 23.1.7779620 not found\"\n    exit 1\nfi\n\necho \"Environment validation passed!\" "
+        }
+    ]
+}

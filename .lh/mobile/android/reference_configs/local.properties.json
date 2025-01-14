@@ -1,0 +1,18 @@
+{
+    "sourceFile": "mobile/android/reference_configs/local.properties",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736492792749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736492792749,
+            "name": "Commit-0",
+            "content": "# Reference local.properties for React Native 0.71.x\r\n# This file should not be checked into version control\r\n\r\n# Path to the Android SDK\r\n# Use double backslashes on Windows\r\nsdk.dir=C:\\\\Users\\\\username\\\\AppData\\\\Local\\\\Android\\\\Sdk\r\n\r\n# Optional: NDK version if needed\r\n# ndk.dir=C:\\\\Users\\\\username\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\ndk\\\\25.1.8937393\r\n\r\n# Optional: If you want to use a specific NDK version\r\n# ndkVersion=25.1.8937393\r\n\r\n# Optional: If you need to specify the build tools version\r\n# buildToolsVersion=33.0.0\r\n\r\n# Optional: Java home if you need to specify a different JDK\r\n# org.gradle.java.home=C:\\\\Program Files\\\\Java\\\\jdk-17\r\n"
+        }
+    ]
+}

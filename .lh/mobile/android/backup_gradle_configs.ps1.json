@@ -1,0 +1,18 @@
+{
+    "sourceFile": "mobile/android/backup_gradle_configs.ps1",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736495695587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736495695587,
+            "name": "Commit-0",
+            "content": "# PowerShell script to backup Gradle configuration files\r\n\r\n# Create backup directory with timestamp\r\n$timestamp = Get-Date -Format \"yyyyMMdd_HHmmss\"\r\n$backupDir = \"backup_$timestamp\"\r\nNew-Item -ItemType Directory -Path $backupDir\r\n\r\n# Files to backup\r\n$filesToBackup = @(\r\n    \"gradle/wrapper/gradle-wrapper.properties\",\r\n    \"build.gradle\",\r\n    \"app/build.gradle\",\r\n    \"settings.gradle\",\r\n    \"gradle.properties\",\r\n    \"version.gradle\"\r\n)\r\n\r\n# Backup each file\r\nforeach ($file in $filesToBackup) {\r\n    $sourceFile = $file\r\n    $destFile = Join-Path $backupDir $file\r\n    \r\n    # Create directory structure if needed\r\n    $destDir = Split-Path -Parent $destFile\r\n    if (!(Test-Path $destDir)) {\r\n        New-Item -ItemType Directory -Path $destDir\r\n    }\r\n    \r\n    # Copy file if it exists\r\n    if (Test-Path $sourceFile) {\r\n        Copy-Item $sourceFile $destFile -Force\r\n        Write-Host \"Backed up: $file\"\r\n    } else {\r\n        Write-Host \"Warning: $file not found\"\r\n    }\r\n}\r\n\r\nWrite-Host \"`nBackup completed in: $backupDir\"\r\n\r\n# Create restore script in backup directory\r\n$restoreScript = @\"\r\n# PowerShell script to restore Gradle configuration files\r\n`$filesToRestore = @(\r\n    \"gradle/wrapper/gradle-wrapper.properties\",\r\n    \"build.gradle\",\r\n    \"app/build.gradle\",\r\n    \"settings.gradle\",\r\n    \"gradle.properties\",\r\n    \"version.gradle\"\r\n)\r\n\r\nforeach (`$file in `$filesToRestore) {\r\n    `$sourceFile = `$file\r\n    `$destFile = Join-Path \"..\" `$file\r\n    \r\n    if (Test-Path `$sourceFile) {\r\n        Copy-Item `$sourceFile `$destFile -Force\r\n        Write-Host \"Restored: `$file\"\r\n    } else {\r\n        Write-Host \"Warning: `$file not found in backup\"\r\n    }\r\n}\r\n\r\nWrite-Host \"`nRestore completed\"\r\n\"@\r\n\r\nSet-Content -Path (Join-Path $backupDir \"restore_configs.ps1\") -Value $restoreScript\r\nWrite-Host \"Created restore script: restore_configs.ps1\"\r\n"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "mobile/android/app/src/main/res/drawable/ic_launcher_background.xml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1736756675912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736756747910,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,8 @@\n <layer-list xmlns:android=\"http://schemas.android.com/apk/res/android\">\n   <item android:drawable=\"@color/splashscreen_background\"/>\n+  <item\n+    android:drawable=\"@drawable/splashscreen_logo\"\n+    android:gravity=\"center\"\n+    android:width=\"120dp\"\n+    android:height=\"120dp\"/>\n </layer-list>\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1736756675912,
+            "name": "Commit-0",
+            "content": "<layer-list xmlns:android=\"http://schemas.android.com/apk/res/android\">\n  <item android:drawable=\"@color/splashscreen_background\"/>\n</layer-list>"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "mobile/android/run_after_metro_v8.ps1",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736531754553,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736531754553,
+            "name": "Commit-0",
+            "content": "# Ensure Java 17 is being used\r\n$env:JAVA_HOME = \"C:\\Program Files\\Java\\jdk-17\"\r\n\r\n# Ensure port forwarding is set up\r\nadb reverse tcp:8081 tcp:8081\r\n\r\n# Run pre-build validation\r\nWrite-Host \"Running pre-build validation...\"\r\n./gradlew lint\r\n./gradlew test\r\n\r\n# Clean and build with new Gradle version\r\nWrite-Host \"Cleaning project...\"\r\n./gradlew clean\r\n\r\nWrite-Host \"Building debug APK...\"\r\n./gradlew assembleDebug --stacktrace\r\n\r\nWrite-Host \"Installing debug APK...\"\r\n./gradlew installDebug\r\n\r\n# Run performance checks\r\nWrite-Host \"Running performance checks...\"\r\n./gradlew --stop # Ensure Gradle daemon is fresh\r\n./gradlew assembleDebug --profile # Generate build performance report\r\n\r\n# Run the app\r\nWrite-Host \"Starting the app...\"\r\nnpx react-native run-android\r\n\r\n# Display build report location\r\nWrite-Host \"Build reports available in: android/build/reports/\""
+        }
+    ]
+}

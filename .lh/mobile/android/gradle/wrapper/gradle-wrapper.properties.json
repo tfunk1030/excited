@@ -1,0 +1,98 @@
+{
+    "sourceFile": "mobile/android/gradle/wrapper/gradle-wrapper.properties",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 20,
+            "patches": [
+                {
+                    "date": 1736483893281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736493550544,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-all.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-7.6.3-bin.zip\r\n networkTimeout=10000\r\n validateDistributionUrl=true\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736495757193,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-7.6.3-bin.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-all.zip\r\n networkTimeout=10000\r\n validateDistributionUrl=true\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736497329129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,5 @@\n+distributionBase=GRADLE_USER_HOME\r\n+distributionPath=wrapper/dists\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-bin.zip\r\n+zipStoreBase=GRADLE_USER_HOME\r\n+zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736499628209,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,5 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-bin.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-7.3.1-bin.zip\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n-distributionBase=GRADLE_USER_HOME\r\n-distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-all.zip\r\n-networkTimeout=10000\r\n-validateDistributionUrl=true\r\n-zipStoreBase=GRADLE_USER_HOME\r\n-zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736499711533,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-7.3.1-bin.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-7.6-bin.zip\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736525809125,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-7.6-bin.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-bin.zip\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736525893574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-bin.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-7.6-bin.zip\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736526049131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-7.6-bin.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-bin.zip\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736526372783,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-bin.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-7.6-bin.zip\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736659801491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-7.6-bin.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-8.1.1-all.zip\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736661908086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-8.1.1-all.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-all.zip\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736661951447,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-all.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-8.1.1-all.zip\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736662014658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-8.1.1-all.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-all.zip\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736662308317,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-all.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-8.1.1-all.zip\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736669231869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-8.1.1-all.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-7.6-all.zip\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736670837231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-7.6-all.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-8.0-all.zip\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736673713969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n distributionBase=GRADLE_USER_HOME\r\n distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-8.0-all.zip\r\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-7.4.2-all.zip\r\n zipStoreBase=GRADLE_USER_HOME\r\n zipStorePath=wrapper/dists\r\n"
+                },
+                {
+                    "date": 1736753693746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n-distributionBase=GRADLE_USER_HOME\r\n-distributionPath=wrapper/dists\r\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-7.4.2-all.zip\r\n-zipStoreBase=GRADLE_USER_HOME\r\n-zipStorePath=wrapper/dists\r\n+distributionBase=GRADLE_USER_HOME\n+distributionPath=wrapper/dists\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-7.5.1-all.zip\n+networkTimeout=10000\n+validateDistributionUrl=true\n+zipStoreBase=GRADLE_USER_HOME\n+zipStorePath=wrapper/dists\n"
+                },
+                {
+                    "date": 1736754005498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,7 @@\n+distributionBase=GRADLE_USER_HOME\n+distributionPath=wrapper/dists\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-8.0.1-all.zip\n+networkTimeout=10000\n+validateDistributionUrl=true\n+zipStoreBase=GRADLE_USER_HOME\n+zipStorePath=wrapper/dists\n"
+                },
+                {
+                    "date": 1736755321065,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,7 @@\n distributionBase=GRADLE_USER_HOME\n distributionPath=wrapper/dists\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-8.0.1-all.zip\n+distributionUrl=https\\://services.gradle.org/distributions/gradle-7.6.1-all.zip\n networkTimeout=10000\n validateDistributionUrl=true\n zipStoreBase=GRADLE_USER_HOME\n zipStorePath=wrapper/dists\n-distributionBase=GRADLE_USER_HOME\n-distributionPath=wrapper/dists\n-distributionUrl=https\\://services.gradle.org/distributions/gradle-7.5.1-all.zip\n-networkTimeout=10000\n-validateDistributionUrl=true\n-zipStoreBase=GRADLE_USER_HOME\n-zipStorePath=wrapper/dists\n"
+                }
+            ],
+            "date": 1736483893281,
+            "name": "Commit-0",
+            "content": "distributionBase=GRADLE_USER_HOME\r\ndistributionPath=wrapper/dists\r\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-8.10.2-all.zip\r\nnetworkTimeout=10000\r\nvalidateDistributionUrl=true\r\nzipStoreBase=GRADLE_USER_HOME\r\nzipStorePath=wrapper/dists\r\n"
+        }
+    ]
+}

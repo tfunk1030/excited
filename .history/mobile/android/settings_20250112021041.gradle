@@ -1,0 +1,20 @@
+rootProject.name = 'excited_mobile'
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+include ':app'
+includeBuild('../node_modules/@react-native/gradle-plugin')
+
+// Add react-native-config
+include ':react-native-config'
+project(':react-native-config').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-config/android')
+
+// Add react-native-async-storage
+include ':async-storage-module'
+project(':async-storage-module').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-async-storage/async-storage/android')
+
+// Add react-native-screens
+include ':screens-module'
+project(':screens-module').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-screens/android/src')
+
+// Add react-native-fast-image
+include ':fast-image-module'
+project(':fast-image-module').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fast-image/android')

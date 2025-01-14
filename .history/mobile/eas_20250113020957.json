@@ -1,0 +1,48 @@
+{
+  "cli": {
+    "version": ">= 5.9.1",
+    "appVersionSource": "local"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "gradleCommand": ":app:assembleDebug"
+      },
+      "ios": {
+        "buildConfiguration": "Debug"
+      },
+      "env": {
+        "ENVIRONMENT": "development"
+      },
+      "cache": {
+        "key": "development-v1"
+      },
+      "extends": "base",
+      "resourceClass": "medium"
+    },
+    "preview": {
+      "distribution": "internal"
+    },
+    "production": {
+      "android": {
+        "buildType": "app-bundle"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  },
+  "hooks": {
+    "postInstall": "npx expo-doctor"
+  },
+  "extras": {
+    "excludePatterns": [
+      "myenv/**/*",
+      "**/myenv/**/*",
+      "**/.env",
+      "**/node_modules/**/*"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "mobile/assets/icon/icon.svg",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736756818479,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736756818479,
+            "name": "Commit-0",
+            "content": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\r\n<svg width=\"1024\" height=\"1024\" viewBox=\"0 0 1024 1024\" xmlns=\"http://www.w3.org/2000/svg\">\r\n    <!-- Blue background circle -->\r\n    <circle cx=\"512\" cy=\"512\" r=\"512\" fill=\"#023c69\"/>\r\n    \r\n    <!-- White bars (minimalist \"E\"), scaled for icon size -->\r\n    <g transform=\"translate(512,512)\">\r\n        <rect x=\"-256\" y=\"-128\" width=\"512\" height=\"64\" fill=\"white\"/>\r\n        <rect x=\"-256\" y=\"-32\" width=\"512\" height=\"64\" fill=\"white\"/>\r\n        <rect x=\"-256\" y=\"64\" width=\"512\" height=\"64\" fill=\"white\"/>\r\n    </g>\r\n</svg>"
+        }
+    ]
+}

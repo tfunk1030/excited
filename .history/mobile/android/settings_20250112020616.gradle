@@ -1,0 +1,39 @@
+rootProject.name = 'excited_mobile'
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+include ':app'
+includeBuild('../node_modules/@react-native/gradle-plugin')
+
+// Add react-native-config
+include ':react-native-config'
+project(':react-native-config').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-config/android')
+
+// Add react-native-async-storage
+include ':@react-native-async-storage_async-storage'
+project(':@react-native-async-storage_async-storage').projectDir = new File(rootProject.projectDir, 'modules/async-storage')
+symlink(new File(rootProject.projectDir, '../node_modules/@react-native-async-storage/async-storage/android'), new File(rootProject.projectDir, 'modules/async-storage'))
+
+// Add react-native-screens
+include ':react-native-screens'
+project(':react-native-screens').projectDir = new File(rootProject.projectDir, 'modules/screens')
+symlink(new File(rootProject.projectDir, '../node_modules/react-native-screens/android'), new File(rootProject.projectDir, 'modules/screens'))
+
+// Add react-native-fast-image
+include ':react-native-fast-image'
+project(':react-native-fast-image').projectDir = new File(rootProject.projectDir, 'modules/fast-image')
+symlink(new File(rootProject.projectDir, '../node_modules/react-native-fast-image/android'), new File(rootProject.projectDir, 'modules/fast-image'))
+
+def symlink(File source, File dest) {
+    if (!dest.exists()) {
+        dest.parentFile.mkdirs()
+        dest.delete()
+        try {
+            java.nio.file.Files.createSymbolicLink(dest.toPath(), source.toPath())
+        } catch (Exception e) {
+            println "Warning: Could not create symlink from ${source} to ${dest}: ${e.message}"
+            // Fallback to copying files if symlink fails
+            ant.copy(todir: dest) {
+                fileset(dir: source)
+            }
+        }
+    }
+}

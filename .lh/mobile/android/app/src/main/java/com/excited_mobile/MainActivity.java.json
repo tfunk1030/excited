@@ -1,0 +1,18 @@
+{
+    "sourceFile": "mobile/android/app/src/main/java/com/excited_mobile/MainActivity.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736573333040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736573333040,
+            "name": "Commit-0",
+            "content": "package com.excited_mobile;\r\n\r\nimport com.facebook.react.ReactActivity;\r\nimport com.facebook.react.ReactActivityDelegate;\r\nimport com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;\r\nimport com.facebook.react.defaults.DefaultReactActivityDelegate;\r\n\r\npublic class MainActivity extends ReactActivity {\r\n\r\n  /**\r\n   * Returns the name of the main component registered from JavaScript. This is used to schedule\r\n   * rendering of the component.\r\n   */\r\n  @Override\r\n  protected String getMainComponentName() {\r\n    return \"excited_mobile\";\r\n  }\r\n\r\n  /**\r\n   * Returns the instance of the {@link ReactActivityDelegate}. Here we use a util class {@link\r\n   * DefaultReactActivityDelegate} which allows you to easily enable Fabric and Concurrent React\r\n   * (aka React 18) with two boolean flags.\r\n   */\r\n  @Override\r\n  protected ReactActivityDelegate createReactActivityDelegate() {\r\n    return new DefaultReactActivityDelegate(\r\n        this,\r\n        getMainComponentName(),\r\n        // If you opted-in for the New Architecture, we enable the Fabric Renderer.\r\n        DefaultNewArchitectureEntryPoint.getFabricEnabled());\r\n  }\r\n}"
+        }
+    ]
+}

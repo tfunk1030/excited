@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "excited_mobile",
+    "slug": "excited_mobile",
+    "version": "1.0.0",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "925bca7a-d875-452d-bf16-dea0104bd038"
+      }
+    }
+  }
+}

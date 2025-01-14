@@ -1,0 +1,147 @@
+configurations {
+    compileClasspath
+}
+
+buildscript {
+    apply from: "config.gradle"
+    def kotlinVersion = ext.AsyncStorageConfig.kotlinVersion
+    def kspVersion = ext.AsyncStorageConfig.kspVersion
+
+    repositories {
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+        classpath "com.google.devtools.ksp:symbol-processing-gradle-plugin:$kspVersion"
+    }
+}
+
+apply plugin: 'com.android.library'
+apply from: 'config.gradle'
+
+boolean isNewArchitectureEnabled = ext.AsyncStorageConfig.isNewArchitectureEnabled
+boolean useNextStorage = ext.AsyncStorageConfig.useNextStorage
+
+logger.info("[AsyncStorage] Config used: {}", ext.AsyncStorageConfig)
+
+if (useNextStorage) {
+    apply plugin: 'com.google.devtools.ksp'
+    apply plugin: 'kotlin-android'
+    apply from: './testresults.gradle'
+}
+
+if (isNewArchitectureEnabled) {
+    apply plugin: "com.facebook.react"
+}
+
+repositories {
+    mavenCentral()
+    google()
+    maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        url "$rootDir/../node_modules/react-native/android"
+    }
+    maven {
+        // Android JSC is installed from npm
+        url "$rootDir/../node_modules/jsc-android/dist"
+    }
+    maven {
+        // Local Maven repo containing AAR files
+        url "$rootDir/../node_modules/react-native/android/maven"
+    }
+    maven {
+        url 'https://www.jitpack.io'
+    }
+    maven {
+        // React Native prebuilt AAR files
+        url "$rootDir/../node_modules/react-native/android/com/facebook/react/react-native/${rootProject.ext.reactNativeVersion}"
+        metadataSources {
+            artifact()
+        }
+    }
+    maven {
+        url "$rootDir/../node_modules/react-native/android"
+        content {
+            includeGroup "com.facebook.react"
+        }
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force "com.facebook.react:react-native:${rootProject.ext.reactNativeVersion}"
+        force "com.facebook.react:react-android:${rootProject.ext.reactNativeVersion}"
+        force "com.facebook.react:hermes-android:${rootProject.ext.reactNativeVersion}"
+        force "org.jetbrains.kotlin:kotlin-stdlib:1.9.24"
+        force "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.24"
+        force "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.24"
+        force "org.jetbrains.kotlin:kotlin-stdlib-common:1.9.24"
+    }
+}
+
+android {
+    namespace "com.reactnativecommunity.asyncstorage"
+    compileSdkVersion project.ext.AsyncStorageConfig.compileSdkVersion
+
+    if (rootProject.hasProperty("ndkPath")) {
+        ndkPath rootProject.ext.ndkPath
+    }
+    if (rootProject.hasProperty("ndkVersion")) {
+        ndkVersion rootProject.ext.ndkVersion
+    }
+
+    defaultConfig {
+        minSdkVersion project.ext.AsyncStorageConfig.minSdkVersion
+        targetSdkVersion project.ext.AsyncStorageConfig.targetSdkVersion
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    if (useNextStorage) {
+        testOptions {
+            unitTests {
+                returnDefaultValues = true
+                includeAndroidResources = true
+            }
+        }
+    }
+
+    sourceSets.main {
+        java {
+            if (useNextStorage) {
+                srcDirs += 'src/kotlinPackage/java'
+            } else {
+                srcDirs += 'src/javaPackage/java'
+            }
+
+            if (!isNewArchitectureEnabled) {
+                srcDirs += 'src/oldarch/java'
+            }
+        }
+    }
+}
+
+dependencies {
+    if (useNextStorage) {
+        def room_version = project.ext.AsyncStorageConfig.roomVersion
+
+        implementation "androidx.room:room-runtime:$room_version"
+        implementation "androidx.room:room-ktx:$room_version"
+        ksp "androidx.room:room-compiler:$room_version"
+
+        implementation project.ext.AsyncStorageLibs.coroutines
+
+        testImplementation project.ext.AsyncStorageLibs.testCoroutines
+        testImplementation project.ext.AsyncStorageLibs.testJunit
+        testImplementation project.ext.AsyncStorageLibs.testExtJunit
+        testImplementation project.ext.AsyncStorageLibs.testRunner
+        testImplementation project.ext.AsyncStorageLibs.testRules
+        testImplementation project.ext.AsyncStorageLibs.testRobolectric
+        testImplementation project.ext.AsyncStorageLibs.testTruth
+    }
+
+    implementation "com.facebook.react:react-native:${rootProject.ext.reactNativeVersion}"
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "mobile/android/kill_java_and_rebuild.ps1",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1736497714519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736498090455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,12 +2,19 @@\n Write-Host \"Killing all Java processes...\"\r\n Get-Process java -ErrorAction SilentlyContinue | Stop-Process -Force\r\n Get-Process javaw -ErrorAction SilentlyContinue | Stop-Process -Force\r\n \r\n-# Run clean script\r\n-Write-Host \"Cleaning environment...\"\r\n-./clean_all.ps1\r\n+# Kill Gradle daemon\r\n+Write-Host \"Stopping Gradle daemon...\"\r\n+./gradlew --stop\r\n \r\n+# Clean Gradle caches\r\n+Write-Host \"Cleaning Gradle caches...\"\r\n+Remove-Item -Recurse -Force -ErrorAction SilentlyContinue \"C:\\Users\\tfunk\\.gradle\\caches\"\r\n+Remove-Item -Recurse -Force -ErrorAction SilentlyContinue \".gradle\"\r\n+Remove-Item -Recurse -Force -ErrorAction SilentlyContinue \"build\"\r\n+Remove-Item -Recurse -Force -ErrorAction SilentlyContinue \"app\\build\"\r\n+\r\n # Set Java 17 environment\r\n $javaHome = \"C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.13.11-hotspot\"\r\n $env:JAVA_HOME = $javaHome\r\n $env:PATH = \"$javaHome\\bin;$env:PATH\"\r\n"
+                }
+            ],
+            "date": 1736497714519,
+            "name": "Commit-0",
+            "content": "# Kill all Java processes\r\nWrite-Host \"Killing all Java processes...\"\r\nGet-Process java -ErrorAction SilentlyContinue | Stop-Process -Force\r\nGet-Process javaw -ErrorAction SilentlyContinue | Stop-Process -Force\r\n\r\n# Run clean script\r\nWrite-Host \"Cleaning environment...\"\r\n./clean_all.ps1\r\n\r\n# Set Java 17 environment\r\n$javaHome = \"C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.13.11-hotspot\"\r\n$env:JAVA_HOME = $javaHome\r\n$env:PATH = \"$javaHome\\bin;$env:PATH\"\r\n\r\n# Verify Java version\r\nWrite-Host \"Verifying Java version...\"\r\njava -version\r\n\r\n# Build project\r\nWrite-Host \"Building project...\"\r\n./gradlew build --info"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "eas.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736755648127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736755648127,
+            "name": "Commit-0",
+            "content": "{\r\n  \"cli\": {\r\n    \"version\": \">= 5.9.1\"\r\n  },\r\n  \"build\": {\r\n    \"development\": {\r\n      \"developmentClient\": true,\r\n      \"distribution\": \"internal\",\r\n      \"env\": {\r\n        \"ENVIRONMENT\": \"development\"\r\n      },\r\n      \"android\": {\r\n        \"gradleCommand\": \":app:assembleDebug\",\r\n        \"buildType\": \"apk\"\r\n      },\r\n      \"ios\": {\r\n        \"buildConfiguration\": \"Debug\"\r\n      }\r\n    },\r\n    \"preview\": {\r\n      \"distribution\": \"internal\"\r\n    },\r\n    \"production\": {}\r\n  },\r\n  \"submit\": {\r\n    \"production\": {}\r\n  }\r\n} "
+        }
+    ]
+}

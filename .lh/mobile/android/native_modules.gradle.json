@@ -1,0 +1,26 @@
+{
+    "sourceFile": "mobile/android/native_modules.gradle",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1736484722498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736484737589,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,6 @@\n+import org.gradle.api.Project\r\n+\r\n def autolinkedDependencies = []\r\n def autolinkedPackages = []\r\n \r\n def registerAutolinkedDependency(dependency) {\r\n@@ -16,12 +18,15 @@\n     }\r\n     return false\r\n }\r\n \r\n-ext.applyNativeModulesAppBuildGradle = { Project project, String packageName ->\r\n+ext.applyNativeModulesAppBuildGradle = { project ->\r\n     def reactNativeModules = new File(\"$project.buildDir/generated/rn/src/main/java/com/facebook/react/PackageList.java\")\r\n     if (reactNativeModules.exists()) {\r\n         reactNativeModules.delete()\r\n     }\r\n     apply from: \"../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle\"\r\n-    applyNativeModulesAppBuildGradle(project, \"com.excited_mobile\")\r\n+    project.ext.react = [\r\n+        androidPackageName: \"com.excited_mobile\"\r\n+    ]\r\n+    applyNativeModulesAppBuildGradle(project)\r\n }\r\n"
+                },
+                {
+                    "date": 1736484773661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,32 +1,4 @@\n-import org.gradle.api.Project\r\n-\r\n-def autolinkedDependencies = []\r\n-def autolinkedPackages = []\r\n-\r\n-def registerAutolinkedDependency(dependency) {\r\n-    if (!autolinkedDependencies.contains(dependency)) {\r\n-        autolinkedDependencies.add(dependency)\r\n-        return true\r\n-    }\r\n-    return false\r\n-}\r\n-\r\n-def registerAutolinkedPackage(packageName) {\r\n-    if (!autolinkedPackages.contains(packageName)) {\r\n-        autolinkedPackages.add(packageName)\r\n-        return true\r\n-    }\r\n-    return false\r\n-}\r\n-\r\n ext.applyNativeModulesAppBuildGradle = { project ->\r\n-    def reactNativeModules = new File(\"$project.buildDir/generated/rn/src/main/java/com/facebook/react/PackageList.java\")\r\n-    if (reactNativeModules.exists()) {\r\n-        reactNativeModules.delete()\r\n-    }\r\n     apply from: \"../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle\"\r\n-    project.ext.react = [\r\n-        androidPackageName: \"com.excited_mobile\"\r\n-    ]\r\n     applyNativeModulesAppBuildGradle(project)\r\n }\r\n"
+                }
+            ],
+            "date": 1736484722498,
+            "name": "Commit-0",
+            "content": "def autolinkedDependencies = []\r\ndef autolinkedPackages = []\r\n\r\ndef registerAutolinkedDependency(dependency) {\r\n    if (!autolinkedDependencies.contains(dependency)) {\r\n        autolinkedDependencies.add(dependency)\r\n        return true\r\n    }\r\n    return false\r\n}\r\n\r\ndef registerAutolinkedPackage(packageName) {\r\n    if (!autolinkedPackages.contains(packageName)) {\r\n        autolinkedPackages.add(packageName)\r\n        return true\r\n    }\r\n    return false\r\n}\r\n\r\next.applyNativeModulesAppBuildGradle = { Project project, String packageName ->\r\n    def reactNativeModules = new File(\"$project.buildDir/generated/rn/src/main/java/com/facebook/react/PackageList.java\")\r\n    if (reactNativeModules.exists()) {\r\n        reactNativeModules.delete()\r\n    }\r\n    apply from: \"../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle\"\r\n    applyNativeModulesAppBuildGradle(project, \"com.excited_mobile\")\r\n}\r\n"
+        }
+    ]
+}

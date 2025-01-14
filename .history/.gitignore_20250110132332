@@ -1,0 +1,101 @@
+# Root level ignores
+.DS_Store
+.idea/
+.vscode/
+.env
+*.log
+*.pyc
+__pycache__/
+node_modules/
+dist/
+build/
+coverage/
+
+# IDE and Editor files
+.history/
+.lh/
+
+# Mobile specific
+mobile/.gitignore.backup
+mobile/android/.gradle/
+mobile/android/local.properties
+mobile/android/app/build/
+mobile/android/build/
+mobile/ios/build/
+mobile/ios/Pods/
+
+# Backup files
+mobile/android/backup_*/
+
+# Environment files
+*.env
+*.env.local
+.env.*
+
+# Gradle files
+.gradle/
+local.properties
+
+# Android/IntelliJ
+*.iml
+.idea/
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.cxx/
+*.keystore
+!debug.keystore
+
+# iOS
+ios/Pods/
+**/ios/.xcode.env.local
+**/ios/Pods/
+DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xccheckout
+*.moved-aside
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+
+# Node
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Python
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist/
+build/
+__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+ENV/
+env/

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "mobile/android/clean_all.ps1",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1736497706514,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736499878664,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,10 @@\n ./gradlew --stop\r\n \r\n # Clean Gradle caches\r\n Write-Host \"Cleaning Gradle caches...\"\r\n-Remove-Item -Recurse -Force -ErrorAction SilentlyContinue \"C:\\Users\\tfunk\\.gradle\\caches\"\r\n-\r\n+Remove-Item -Recurse -Force -ErrorAction SilentlyContinue \"$env:USERPROFILE\\.gradle\\caches\\*\"\r\n+Remove-Item -Recurse -Force -ErrorAction SilentlyContinue \"$env:USERPROFILE\\.gradle\\daemon\\*\"\r\n # Clean project\r\n Write-Host \"Cleaning project...\"\r\n Remove-Item -Recurse -Force -ErrorAction SilentlyContinue \"build\"\r\n Remove-Item -Recurse -Force -ErrorAction SilentlyContinue \"app\\build\"\r\n"
+                }
+            ],
+            "date": 1736497706514,
+            "name": "Commit-0",
+            "content": "# Stop Gradle daemon\r\nWrite-Host \"Stopping Gradle daemon...\"\r\n./gradlew --stop\r\n\r\n# Clean Gradle caches\r\nWrite-Host \"Cleaning Gradle caches...\"\r\nRemove-Item -Recurse -Force -ErrorAction SilentlyContinue \"C:\\Users\\tfunk\\.gradle\\caches\"\r\n\r\n# Clean project\r\nWrite-Host \"Cleaning project...\"\r\nRemove-Item -Recurse -Force -ErrorAction SilentlyContinue \"build\"\r\nRemove-Item -Recurse -Force -ErrorAction SilentlyContinue \"app\\build\"\r\nRemove-Item -Recurse -Force -ErrorAction SilentlyContinue \".gradle\"\r\n\r\nWrite-Host \"Clean completed\""
+        }
+    ]
+}

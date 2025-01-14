@@ -1,0 +1,18 @@
+{
+    "sourceFile": "mobile/src/components/shared/Card.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736575536189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736575536189,
+            "name": "Commit-0",
+            "content": "import React from 'react';\r\nimport { View, StyleSheet, ViewProps } from 'react-native';\r\nimport { theme } from '../../styles/theme';\r\n\r\ninterface CardProps extends ViewProps {\r\n  children: React.ReactNode;\r\n}\r\n\r\nconst Card = ({ children, style, ...props }: CardProps) => {\r\n  return (\r\n    <View style={[styles.card, style]} {...props}>\r\n      {children}\r\n    </View>\r\n  );\r\n};\r\n\r\nconst styles = StyleSheet.create({\r\n  card: {\r\n    backgroundColor: theme.colors.background,\r\n    borderRadius: theme.borderRadius.md,\r\n    padding: theme.spacing.md,\r\n    marginBottom: theme.spacing.md,\r\n  },\r\n});\r\n\r\nexport default Card;\r\n"
+        }
+    ]
+}

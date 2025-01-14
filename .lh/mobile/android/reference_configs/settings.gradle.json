@@ -1,0 +1,18 @@
+{
+    "sourceFile": "mobile/android/reference_configs/settings.gradle",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736492736258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736492736258,
+            "name": "Commit-0",
+            "content": "// Reference settings.gradle for React Native 0.71.x\r\nrootProject.name = 'YourAppName'\r\napply from: file(\"../node_modules/@react-native-community/cli-platform-android/native_modules.gradle\"); applyNativeModulesSettingsGradle(settings)\r\ninclude ':app'\r\n\r\n// Include other native modules if needed, for example:\r\n// include ':react-native-vector-icons'\r\n// project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')\r\n"
+        }
+    ]
+}

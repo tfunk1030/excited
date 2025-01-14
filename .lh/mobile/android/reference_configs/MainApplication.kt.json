@@ -1,0 +1,18 @@
+{
+    "sourceFile": "mobile/android/reference_configs/MainApplication.kt",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736492751069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736492751069,
+            "name": "Commit-0",
+            "content": "// Reference MainApplication.kt for React Native 0.71.x\r\npackage com.your.app\r\n\r\nimport android.app.Application\r\nimport com.facebook.react.PackageList\r\nimport com.facebook.react.ReactApplication\r\nimport com.facebook.react.ReactHost\r\nimport com.facebook.react.ReactNativeHost\r\nimport com.facebook.react.ReactPackage\r\nimport com.facebook.react.defaults.DefaultNewArchitectureEntryPoint\r\nimport com.facebook.react.defaults.DefaultReactHost\r\nimport com.facebook.react.defaults.DefaultReactNativeHost\r\nimport com.facebook.react.flipper.ReactNativeFlipper\r\nimport com.facebook.soloader.SoLoader\r\n\r\nclass MainApplication : Application(), ReactApplication {\r\n  override val reactNativeHost: ReactNativeHost = object : DefaultReactNativeHost(this) {\r\n    override fun getPackages(): List<ReactPackage> {\r\n      // Packages that cannot be autolinked yet can be added manually here\r\n      return PackageList(this).packages\r\n    }\r\n\r\n    override fun getJSMainModuleName(): String = \"index\"\r\n\r\n    override fun getUseDeveloperSupport(): Boolean = BuildConfig.DEBUG\r\n\r\n    override val isNewArchEnabled: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED\r\n    override val isHermesEnabled: Boolean = BuildConfig.IS_HERMES_ENABLED\r\n  }\r\n\r\n  override val reactHost: ReactHost\r\n    get() = DefaultReactHost.getDefaultReactHost(this.applicationContext, reactNativeHost)\r\n\r\n  override fun onCreate() {\r\n    super.onCreate()\r\n    SoLoader.init(this, false)\r\n    if (BuildConfig.IS_NEW_ARCHITECTURE_ENABLED) {\r\n      // If you opted-in for the New Architecture, we load the native entry point for this app.\r\n      DefaultNewArchitectureEntryPoint.load()\r\n    }\r\n    ReactNativeFlipper.initializeFlipper(this, reactNativeHost.reactInstanceManager)\r\n  }\r\n}\r\n"
+        }
+    ]
+}

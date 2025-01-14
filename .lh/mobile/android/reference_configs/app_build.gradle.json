@@ -1,0 +1,18 @@
+{
+    "sourceFile": "mobile/android/reference_configs/app_build.gradle",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736492629048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736492629048,
+            "name": "Commit-0",
+            "content": "// App-level build.gradle for React Native 0.71.x\r\napply plugin: \"com.android.application\"\r\napply plugin: \"com.facebook.react\"\r\n\r\n/**\r\n * This is the configuration block for React Native\r\n * Include this if you are integrating React Native into an existing app\r\n */\r\nreact {\r\n    root = file(\"../../\")  // Path to your React Native project\r\n    entryFile = \"index.js\"\r\n    enableHermes = true  // Enable for better performance\r\n}\r\n\r\nandroid {\r\n    namespace \"com.your.app\"\r\n    compileSdkVersion rootProject.ext.compileSdkVersion\r\n\r\n    defaultConfig {\r\n        applicationId \"com.your.app\"\r\n        minSdkVersion rootProject.ext.minSdkVersion\r\n        targetSdkVersion rootProject.ext.targetSdkVersion\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled true\r\n            proguardFiles getDefaultProguardFile(\"proguard-android.txt\"), \"proguard-rules.pro\"\r\n        }\r\n    }\r\n\r\n    // Configure only for Android projects using Java 8 features\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_11\r\n        targetCompatibility JavaVersion.VERSION_11\r\n    }\r\n}\r\n\r\ndependencies {\r\n    // React Native core dependencies\r\n    implementation \"com.facebook.react:react-android\"\r\n    implementation \"com.facebook.react:hermes-android\"\r\n\r\n    // For animated GIF support\r\n    implementation \"com.facebook.fresco:animated-gif\"\r\n\r\n    // For WebP support\r\n    implementation \"com.facebook.fresco:webpsupport\"\r\n    implementation \"com.facebook.fresco:animated-webp\"\r\n\r\n    debugImplementation(\"com.facebook.flipper:flipper:${FLIPPER_VERSION}\")\r\n    debugImplementation(\"com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}\") {\r\n        exclude group:'com.squareup.okhttp3', module:'okhttp'\r\n    }\r\n\r\n    debugImplementation(\"com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}\")\r\n}\r\n\r\napply from: file(\"../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle\"); applyNativeModulesAppBuildGradle(project)\r\n"
+        }
+    ]
+}

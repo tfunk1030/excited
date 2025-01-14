@@ -1,0 +1,38 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven {
+            url("$rootDir/../node_modules/@react-native/gradle-plugin")
+        }
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url("$rootDir/../node_modules/react-native/android")
+        }
+    }
+}
+
+rootProject.name = 'excited_mobile'
+
+// Define ext properties at the settings level
+gradle.ext {
+    androidPackageName = "com.excited_mobile"
+    buildToolsVersion = "35.0.0"
+    minSdkVersion = 21
+    compileSdkVersion = 34
+    targetSdkVersion = 34
+    ndkVersion = "27.0.12077973"
+    kotlinVersion = "1.8.0"
+}
+
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+include ':app'
+includeBuild('../node_modules/@react-native/gradle-plugin')

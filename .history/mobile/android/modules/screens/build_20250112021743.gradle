@@ -1,0 +1,126 @@
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24"
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+def IS_NEW_ARCHITECTURE_ENABLED = project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
+
+android {
+    compileSdkVersion safeExtGet('compileSdkVersion', 34)
+    namespace "com.swmansion.rnscreens"
+
+    defaultConfig {
+        minSdkVersion safeExtGet('minSdkVersion', 21)
+        targetSdkVersion safeExtGet('targetSdkVersion', 34)
+        versionCode 1
+        versionName "1.0"
+        buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", IS_NEW_ARCHITECTURE_ENABLED.toString()
+        externalNativeBuild {
+            cmake {
+                arguments "-DANDROID_STL=c++_shared",
+                        "-DRNS_NEW_ARCH_ENABLED=${IS_NEW_ARCHITECTURE_ENABLED}"
+            }
+        }
+    }
+    buildFeatures {
+        prefab true
+        buildConfig true
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        // For some reason gradle only complains about the duplicated version of libreact_render libraries
+        // while there are more libraries copied in intermediates folder of the lib build directory, we exclude
+        // only the ones that make the build fail (ideally we should only include librnscreens_modules but we
+        // are only allowed to specify exclude patterns)
+        excludes = [
+                "META-INF",
+                "META-INF/**",
+                "**/libjsi.so",
+                "**/libc++_shared.so",
+                "**/libreact_render*.so",
+                "**/libreactnativejni.so",
+                "**/libreact_performance_timeline.so",
+                // In 0.76 multiple react-native's libraries were merged and these are the main new artifacts we're using.
+                // Some of above lib* names could be removed after we remove support for 0.76.
+                // https://github.com/facebook/react-native/pull/43909
+                // https://github.com/facebook/react-native/pull/46059
+                "**/libfbjni.so", 
+                "**/libreactnative.so"
+        ]
+    }
+    sourceSets.main {
+        ext.androidResDir = "src/main/res"
+        java {
+            if (IS_NEW_ARCHITECTURE_ENABLED) {
+                srcDirs += [
+                    "src/fabric/java",
+                ]
+            } else {
+                srcDirs += [
+                    "src/paper/java",
+                ]
+            }
+        }
+        res {
+            if (safeExtGet(['compileSdkVersion', 'compileSdk'], rnsDefaultCompileSdkVersion) >= 33) {
+                srcDirs = ["${androidResDir}/base", "${androidResDir}/v33"]
+            } else {
+                srcDirs = ["${androidResDir}/base"]
+            }
+        }
+    }
+}
+
+repositories {
+    maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        url "$rootDir/../../node_modules/react-native/android"
+    }
+    maven {
+        // Android JSC is installed from npm
+        url "$rootDir/../../node_modules/jsc-android/dist"
+    }
+
+    mavenCentral()
+    mavenLocal()
+    google()
+}
+
+dependencies {
+    implementation 'com.facebook.react:react-native:+'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.fragment:fragment-ktx:1.6.1'
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation "androidx.core:core-ktx:1.8.0"
+
+    constraints {
+        implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1") {
+            because("on older React Native versions this dependency conflicts with react-native-screens")
+        }
+    }
+}

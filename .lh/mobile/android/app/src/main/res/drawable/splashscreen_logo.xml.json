@@ -1,0 +1,18 @@
+{
+    "sourceFile": "mobile/android/app/src/main/res/drawable/splashscreen_logo.xml",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736756740670,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736756740670,
+            "name": "Commit-0",
+            "content": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<vector xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:width=\"200dp\"\r\n    android:height=\"200dp\"\r\n    android:viewportWidth=\"200\"\r\n    android:viewportHeight=\"200\">\r\n    \r\n    <!-- Circle background -->\r\n    <path\r\n        android:fillColor=\"#023c69\"\r\n        android:pathData=\"M100,100m-80,0a80,80 0,1 1,160 0a80,80 0,1 1,-160 0\"/>\r\n    \r\n    <!-- Text \"EXCITED\" -->\r\n    <path\r\n        android:fillColor=\"#FFFFFF\"\r\n        android:pathData=\"M50,90h100v20h-100z\"/>\r\n    <path\r\n        android:fillColor=\"#FFFFFF\"\r\n        android:pathData=\"M50,60h100v20h-100z\"/>\r\n    <path\r\n        android:fillColor=\"#FFFFFF\"\r\n        android:pathData=\"M50,120h100v20h-100z\"/>\r\n</vector>"
+        }
+    ]
+}

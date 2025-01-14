@@ -1,0 +1,30 @@
+{
+    "sourceFile": "mobile/.easignore",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1736752417226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736752725303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,39 @@\n-# Ignore myenv directory\r\n+# Python virtual environment\r\n+/myenv/\r\n myenv/\r\n-../myenv/\r\n **/myenv/\r\n \r\n-# Other common excludes\r\n+# Development\r\n .git\r\n .github\r\n-.vscode\r\n-node_modules/\r\n\\ No newline at end of file\n+__tests__\r\n+*.test.js\r\n+*.test.ts\r\n+*.test.tsx\r\n+\r\n+# Dependencies\r\n+node_modules\r\n+\r\n+# Build\r\n+build/\r\n+dist/\r\n .expo/\r\n-dist/\r\n-web-build/ \n+web-build/\r\n+\r\n+# Environment\r\n+.env.local\r\n+.env.development.local\r\n+.env.test.local\r\n+.env.production.local\r\n+\r\n+# IDE\r\n+.idea/\r\n+.vscode/\r\n+*.swp\r\n+*.swo\r\n+\r\n+# Logs\r\n+*.log\r\n+npm-debug.*\r\n+yarn-debug.*\r\n+yarn-error.* \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1736754153302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,39 +1,2 @@\n-# Python virtual environment\r\n-/myenv/\r\n-myenv/\r\n-**/myenv/\r\n-\r\n-# Development\r\n-.git\r\n-.github\r\n-__tests__\r\n-*.test.js\r\n-*.test.ts\r\n-*.test.tsx\r\n-\r\n-# Dependencies\r\n-node_modules\r\n-\r\n-# Build\r\n-build/\r\n-dist/\r\n-.expo/\r\n-web-build/\r\n-\r\n-# Environment\r\n-.env.local\r\n-.env.development.local\r\n-.env.test.local\r\n-.env.production.local\r\n-\r\n-# IDE\r\n-.idea/\r\n-.vscode/\r\n-*.swp\r\n-*.swo\r\n-\r\n-# Logs\r\n-*.log\r\n-npm-debug.*\r\n-yarn-debug.*\r\n-yarn-error.* \n\\ No newline at end of file\n+/android\r\n+/ios\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1736756092609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,6 @@\n /android\r\n-/ios\n\\ No newline at end of file\n+/ios\r\n+/android/.gradle\r\n+/android/.gradle/**/*\r\n+/android/app/build\r\n+/android/build\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1736752417226,
+            "name": "Commit-0",
+            "content": "# Ignore myenv directory\r\nmyenv/\r\n../myenv/\r\n**/myenv/\r\n\r\n# Other common excludes\r\n.git\r\n.github\r\n.vscode\r\nnode_modules/\r\n.expo/\r\ndist/\r\nweb-build/ "
+        }
+    ]
+}

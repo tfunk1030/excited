@@ -1,0 +1,58 @@
+{
+    "sourceFile": "mobile/app.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1736483422321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736748456372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,40 @@\n-{\r\n-  \"name\": \"excited_mobile\",\r\n-  \"displayName\": \"excited_mobile\",\r\n-  \"project\": {\r\n-    \"android\": {\r\n-      \"packageName\": \"com.excited_mobile\"\r\n-    }\r\n-  }\r\n-}\r\n+{\n+  \"expo\": {\n+    \"name\": \"excited_mobile\",\n+    \"slug\": \"excited-mobile\",\n+    \"version\": \"1.0.0\",\n+    \"orientation\": \"portrait\",\n+    \"icon\": \"./assets/icon.png\",\n+    \"userInterfaceStyle\": \"light\",\n+    \"splash\": {\n+      \"image\": \"./assets/splash.png\",\n+      \"resizeMode\": \"contain\",\n+      \"backgroundColor\": \"#ffffff\"\n+    },\n+    \"assetBundlePatterns\": [\n+      \"**/*\"\n+    ],\n+    \"ios\": {\n+      \"supportsTablet\": true,\n+      \"bundleIdentifier\": \"com.excited-mobile\"\n+    },\n+    \"android\": {\n+      \"adaptiveIcon\": {\n+        \"foregroundImage\": \"./assets/adaptive-icon.png\",\n+        \"backgroundColor\": \"#ffffff\"\n+      },\n+      \"package\": \"com.excited_mobile\"\n+    },\n+    \"plugins\": [\n+      \"expo-router\"\n+    ],\n+    \"extra\": {\n+      \"router\": {\n+        \"origin\": false\n+      },\n+      \"eas\": {\n+        \"projectId\": \"925bca7a-d875-452d-bf16-dea0104bd038\"\n+      }\n+    }\n+  }\n+}\n"
+                },
+                {
+                    "date": 1736749632566,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,29 +3,9 @@\n     \"name\": \"excited_mobile\",\n     \"slug\": \"excited-mobile\",\n     \"version\": \"1.0.0\",\n     \"orientation\": \"portrait\",\n-    \"icon\": \"./assets/icon.png\",\n-    \"userInterfaceStyle\": \"light\",\n-    \"splash\": {\n-      \"image\": \"./assets/splash.png\",\n-      \"resizeMode\": \"contain\",\n-      \"backgroundColor\": \"#ffffff\"\n-    },\n-    \"assetBundlePatterns\": [\n-      \"**/*\"\n-    ],\n-    \"ios\": {\n-      \"supportsTablet\": true,\n-      \"bundleIdentifier\": \"com.excited-mobile\"\n-    },\n-    \"android\": {\n-      \"adaptiveIcon\": {\n-        \"foregroundImage\": \"./assets/adaptive-icon.png\",\n-        \"backgroundColor\": \"#ffffff\"\n-      },\n-      \"package\": \"com.excited_mobile\"\n-    },\n+    \"userInterfaceStyle\": \"dark\",\n     \"plugins\": [\n       \"expo-router\"\n     ],\n     \"extra\": {\n"
+                },
+                {
+                    "date": 1736750047510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,13 +2,8 @@\n   \"expo\": {\n     \"name\": \"excited_mobile\",\n     \"slug\": \"excited-mobile\",\n     \"version\": \"1.0.0\",\n-    \"orientation\": \"portrait\",\n-    \"userInterfaceStyle\": \"dark\",\n-    \"plugins\": [\n-      \"expo-router\"\n-    ],\n     \"extra\": {\n       \"router\": {\n         \"origin\": false\n       },\n"
+                },
+                {
+                    "date": 1736752038256,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n {\n   \"expo\": {\n     \"name\": \"excited_mobile\",\n-    \"slug\": \"excited-mobile\",\n+    \"slug\": \"excited_mobile\",\n     \"version\": \"1.0.0\",\n     \"extra\": {\n       \"router\": {\n         \"origin\": false\n"
+                },
+                {
+                    "date": 1736755880220,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,7 +9,12 @@\n       },\n       \"eas\": {\n         \"projectId\": \"925bca7a-d875-452d-bf16-dea0104bd038\"\n       }\n-    }\n+    },\n+    \"runtimeVersion\": \"1.0.0\",\n+    \"updates\": {\n+      \"url\": \"https://u.expo.dev/925bca7a-d875-452d-bf16-dea0104bd038\"\n+    },\n+    \"ios\": {}\n   }\n }\n"
+                },
+                {
+                    "date": 1736756832603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,14 @@\n   \"expo\": {\n     \"name\": \"excited_mobile\",\n     \"slug\": \"excited_mobile\",\n     \"version\": \"1.0.0\",\n+    \"icon\": \"./assets/icon/icon.svg\",\n+    \"splash\": {\n+      \"image\": \"./assets/splash/splash.svg\",\n+      \"resizeMode\": \"contain\",\n+      \"backgroundColor\": \"#1A1A1A\"\n+    },\n     \"extra\": {\n       \"router\": {\n         \"origin\": false\n       },\n@@ -14,7 +20,13 @@\n     \"runtimeVersion\": \"1.0.0\",\n     \"updates\": {\n       \"url\": \"https://u.expo.dev/925bca7a-d875-452d-bf16-dea0104bd038\"\n     },\n-    \"ios\": {}\n+    \"ios\": {},\n+    \"android\": {\n+      \"adaptiveIcon\": {\n+        \"foregroundImage\": \"./assets/icon/icon.svg\",\n+        \"backgroundColor\": \"#023c69\"\n+      }\n+    }\n   }\n }\n"
+                },
+                {
+                    "date": 1736758355339,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n   \"expo\": {\n     \"name\": \"excited_mobile\",\n     \"slug\": \"excited_mobile\",\n     \"version\": \"1.0.0\",\n+    \"scheme\": \"excited\",\n     \"icon\": \"./assets/icon/icon.svg\",\n     \"splash\": {\n       \"image\": \"./assets/splash/splash.svg\",\n       \"resizeMode\": \"contain\",\n@@ -26,7 +27,10 @@\n       \"adaptiveIcon\": {\n         \"foregroundImage\": \"./assets/icon/icon.svg\",\n         \"backgroundColor\": \"#023c69\"\n       }\n-    }\n+    },\n+    \"plugins\": [\n+      \"expo-router\"\n+    ]\n   }\n }\n"
+                },
+                {
+                    "date": 1736758391105,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,11 @@\n     \"name\": \"excited_mobile\",\n     \"slug\": \"excited_mobile\",\n     \"version\": \"1.0.0\",\n     \"scheme\": \"excited\",\n-    \"icon\": \"./assets/icon/icon.svg\",\n+    \"icon\": \"./assets/icon/icon.png\",\n     \"splash\": {\n-      \"image\": \"./assets/splash/splash.svg\",\n+      \"image\": \"./assets/splash/splash.png\",\n       \"resizeMode\": \"contain\",\n       \"backgroundColor\": \"#1A1A1A\"\n     },\n     \"extra\": {\n@@ -26,9 +26,10 @@\n     \"android\": {\n       \"adaptiveIcon\": {\n         \"foregroundImage\": \"./assets/icon/icon.svg\",\n         \"backgroundColor\": \"#023c69\"\n-      }\n+      },\n+      \"package\": \"com.tfunk1030.excited_mobile\"\n     },\n     \"plugins\": [\n       \"expo-router\"\n     ]\n"
+                },
+                {
+                    "date": 1736758457496,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,37 @@\n+{\n+  \"expo\": {\n+    \"name\": \"excited_mobile\",\n+    \"slug\": \"excited_mobile\",\n+    \"version\": \"1.0.0\",\n+    \"scheme\": \"excited\",\n+    \"icon\": \"./assets/icon/icon.png\",\n+    \"splash\": {\n+      \"image\": \"./assets/icon/icon.png\",\n+      \"resizeMode\": \"contain\",\n+      \"backgroundColor\": \"#1A1A1A\"\n+    },\n+    \"extra\": {\n+      \"router\": {\n+        \"origin\": false\n+      },\n+      \"eas\": {\n+        \"projectId\": \"925bca7a-d875-452d-bf16-dea0104bd038\"\n+      }\n+    },\n+    \"runtimeVersion\": \"1.0.0\",\n+    \"updates\": {\n+      \"url\": \"https://u.expo.dev/925bca7a-d875-452d-bf16-dea0104bd038\"\n+    },\n+    \"ios\": {},\n+    \"android\": {\n+      \"adaptiveIcon\": {\n+        \"foregroundImage\": \"./assets/icon/icon.svg\",\n+        \"backgroundColor\": \"#023c69\"\n+      },\n+      \"package\": \"com.tfunk1030.excited_mobile\"\n+    },\n+    \"plugins\": [\n+      \"expo-router\"\n+    ]\n+  }\n+}\n"
+                },
+                {
+                    "date": 1736758483425,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n     },\n     \"ios\": {},\n     \"android\": {\n       \"adaptiveIcon\": {\n-        \"foregroundImage\": \"./assets/icon/icon.svg\",\n+        \"foregroundImage\": \"./assets/icon/icon.png\",\n         \"backgroundColor\": \"#023c69\"\n       },\n       \"package\": \"com.tfunk1030.excited_mobile\"\n     },\n@@ -34,41 +34,4 @@\n       \"expo-router\"\n     ]\n   }\n }\n-{\n-  \"expo\": {\n-    \"name\": \"excited_mobile\",\n-    \"slug\": \"excited_mobile\",\n-    \"version\": \"1.0.0\",\n-    \"scheme\": \"excited\",\n-    \"icon\": \"./assets/icon/icon.png\",\n-    \"splash\": {\n-      \"image\": \"./assets/splash/splash.png\",\n-      \"resizeMode\": \"contain\",\n-      \"backgroundColor\": \"#1A1A1A\"\n-    },\n-    \"extra\": {\n-      \"router\": {\n-        \"origin\": false\n-      },\n-      \"eas\": {\n-        \"projectId\": \"925bca7a-d875-452d-bf16-dea0104bd038\"\n-      }\n-    },\n-    \"runtimeVersion\": \"1.0.0\",\n-    \"updates\": {\n-      \"url\": \"https://u.expo.dev/925bca7a-d875-452d-bf16-dea0104bd038\"\n-    },\n-    \"ios\": {},\n-    \"android\": {\n-      \"adaptiveIcon\": {\n-        \"foregroundImage\": \"./assets/icon/icon.svg\",\n-        \"backgroundColor\": \"#023c69\"\n-      },\n-      \"package\": \"com.tfunk1030.excited_mobile\"\n-    },\n-    \"plugins\": [\n-      \"expo-router\"\n-    ]\n-  }\n-}\n"
+                }
+            ],
+            "date": 1736483422321,
+            "name": "Commit-0",
+            "content": "{\r\n  \"name\": \"excited_mobile\",\r\n  \"displayName\": \"excited_mobile\",\r\n  \"project\": {\r\n    \"android\": {\r\n      \"packageName\": \"com.excited_mobile\"\r\n    }\r\n  }\r\n}\r\n"
+        }
+    ]
+}

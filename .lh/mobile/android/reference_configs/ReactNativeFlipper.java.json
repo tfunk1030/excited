@@ -1,0 +1,18 @@
+{
+    "sourceFile": "mobile/android/reference_configs/ReactNativeFlipper.java",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736492766369,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736492766369,
+            "name": "Commit-0",
+            "content": "// Reference ReactNativeFlipper.java for React Native 0.71.x\r\npackage com.your.app.debug;\r\n\r\nimport android.content.Context;\r\nimport com.facebook.flipper.android.AndroidFlipperClient;\r\nimport com.facebook.flipper.android.utils.FlipperUtils;\r\nimport com.facebook.flipper.core.FlipperClient;\r\nimport com.facebook.flipper.plugins.crashreporter.CrashReporterPlugin;\r\nimport com.facebook.flipper.plugins.databases.DatabasesFlipperPlugin;\r\nimport com.facebook.flipper.plugins.fresco.FrescoFlipperPlugin;\r\nimport com.facebook.flipper.plugins.inspector.DescriptorMapping;\r\nimport com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin;\r\nimport com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor;\r\nimport com.facebook.flipper.plugins.network.NetworkFlipperPlugin;\r\nimport com.facebook.flipper.plugins.sharedpreferences.SharedPreferencesFlipperPlugin;\r\nimport com.facebook.react.ReactInstanceEventListener;\r\nimport com.facebook.react.ReactInstanceManager;\r\nimport com.facebook.react.bridge.ReactContext;\r\nimport com.facebook.react.modules.network.NetworkingModule;\r\nimport okhttp3.OkHttpClient;\r\n\r\n/**\r\n * Class responsible for loading Flipper inside your React Native application. This is the debug\r\n * flavor of it. Here you can add your own plugins and customize the Flipper setup.\r\n */\r\npublic class ReactNativeFlipper {\r\n  public static void initializeFlipper(Context context, ReactInstanceManager reactInstanceManager) {\r\n    if (FlipperUtils.shouldEnableFlipper(context)) {\r\n      final FlipperClient client = AndroidFlipperClient.getInstance(context);\r\n\r\n      client.addPlugin(new InspectorFlipperPlugin(context, DescriptorMapping.withDefaults()));\r\n      client.addPlugin(new DatabasesFlipperPlugin(context));\r\n      client.addPlugin(new SharedPreferencesFlipperPlugin(context));\r\n      client.addPlugin(new CrashReporterPlugin());\r\n\r\n      NetworkFlipperPlugin networkFlipperPlugin = new NetworkFlipperPlugin();\r\n      NetworkingModule.setCustomClientBuilder(\r\n          new NetworkingModule.CustomClientBuilder() {\r\n            @Override\r\n            public void apply(OkHttpClient.Builder builder) {\r\n              builder.addNetworkInterceptor(new FlipperOkhttpInterceptor(networkFlipperPlugin));\r\n            }\r\n          });\r\n      client.addPlugin(networkFlipperPlugin);\r\n      client.start();\r\n\r\n      // Fresco Plugin needs to ensure that ImagePipelineFactory is initialized\r\n      // Hence we run if after all native modules have been initialized\r\n      ReactContext reactContext = reactInstanceManager.getCurrentReactContext();\r\n      if (reactContext == null) {\r\n        reactInstanceManager.addReactInstanceEventListener(\r\n            new ReactInstanceEventListener() {\r\n              @Override\r\n              public void onReactContextInitialized(ReactContext reactContext) {\r\n                reactInstanceManager.removeReactInstanceEventListener(this);\r\n                client.addPlugin(new FrescoFlipperPlugin());\r\n              }\r\n            });\r\n      } else {\r\n        client.addPlugin(new FrescoFlipperPlugin());\r\n      }\r\n    }\r\n  }\r\n}\r\n"
+        }
+    ]
+}

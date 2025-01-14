@@ -1,0 +1,22 @@
+{
+    "sourceFile": "mobile/android/reference_configs/build.gradle",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1736492591644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736492602436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-# Root build.gradle - Recommended configuration for React Native 0.71.x\r\n+// Root build.gradle - Recommended configuration for React Native 0.71.x\r\n buildscript {\r\n     ext {\r\n         buildToolsVersion = \"33.0.0\"\r\n         minSdkVersion = 21\r\n"
+                }
+            ],
+            "date": 1736492591644,
+            "name": "Commit-0",
+            "content": "# Root build.gradle - Recommended configuration for React Native 0.71.x\r\nbuildscript {\r\n    ext {\r\n        buildToolsVersion = \"33.0.0\"\r\n        minSdkVersion = 21\r\n        compileSdkVersion = 33\r\n        targetSdkVersion = 33\r\n        kotlinVersion = \"1.7.20\"\r\n        // Don't use AGP 8.x until React Native 0.73\r\n        androidGradlePluginVersion = \"7.3.1\"\r\n    }\r\n    repositories {\r\n        google()\r\n        mavenCentral()\r\n    }\r\n    dependencies {\r\n        classpath(\"com.android.tools.build:gradle:$androidGradlePluginVersion\")\r\n        classpath(\"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion\")\r\n        classpath(\"com.facebook.react:react-native-gradle-plugin\")\r\n    }\r\n}\r\n\r\nallprojects {\r\n    repositories {\r\n        maven {\r\n            // Android JSC is installed from npm\r\n            url(\"$rootDir/../node_modules/jsc-android/dist\")\r\n        }\r\n        mavenCentral()\r\n        google()\r\n        maven { url 'https://www.jitpack.io' }\r\n    }\r\n}\r\n"
+        }
+    ]
+}

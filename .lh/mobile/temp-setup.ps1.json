@@ -1,0 +1,26 @@
+{
+    "sourceFile": "mobile/temp-setup.ps1",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1736481830061,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736482229354,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-﻿Write-Host \"Setting up native modules...\"\r\n+Write-Host \"Setting up native modules...\"\r\n \r\n # Generate codegen files\r\n Write-Host \"Generating codegen files...\"\r\n npx react-native codegen\r\n"
+                },
+                {
+                    "date": 1736482242226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-﻿Write-Host \"Setting up native modules...\"\r\n+Write-Host \"Setting up native modules...\"\r\n \r\n # Generate codegen files\r\n Write-Host \"Generating codegen files...\"\r\n npx react-native codegen\r\n"
+                }
+            ],
+            "date": 1736481830061,
+            "name": "Commit-0",
+            "content": "# Create a temporary script without the directory navigation\r\n$scriptContent = @'\r\nWrite-Host \"Setting up native modules...\"\r\n\r\n# Generate codegen files\r\nWrite-Host \"Generating codegen files...\"\r\nnpx react-native codegen\r\n\r\n# Create necessary directories\r\nWrite-Host \"Creating native module directories...\"\r\n$modules = @(\r\n    \"react-native-reanimated\",\r\n    \"@react-native-async-storage/async-storage\",\r\n    \"react-native-gesture-handler\",\r\n    \"react-native-screens\"\r\n)\r\n\r\nforeach ($module in $modules) {\r\n    $path = \"node_modules/$module/android/build/generated/source/codegen/jni\"\r\n    if (-not (Test-Path $path)) {\r\n        New-Item -ItemType Directory -Force -Path $path\r\n    }\r\n}\r\n\r\n# Create autolinking directory and file\r\nNew-Item -ItemType Directory -Force -Path \"android/build/generated/autolinking\"\r\n@\"\r\n{\r\n    \"dependencies\": {}\r\n}\r\n\"@ | Out-File -FilePath \"android/build/generated/autolinking/autolinking.json\" -Encoding UTF8\r\n\r\n# Clean and rebuild\r\nWrite-Host \"Cleaning Android build...\"\r\nSet-Location android\r\n./gradlew clean\r\nSet-Location ..\r\n\r\nWrite-Host \"Starting build...\"\r\nnpx react-native run-android --active-arch-only\r\n\r\nWrite-Host \"Native module setup complete!\"\r\n'@\r\n\r\n$scriptContent | Out-File -FilePath \"temp-setup.ps1\" -Encoding UTF8"
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "sourceFile": "mobile/eas.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1736752134123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736752197394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,48 @@\n+{\n+  \"cli\": {\n+    \"version\": \">= 5.9.1\",\n+    \"appVersionSource\": \"local\"\n+  },\n+  \"build\": {\n+    \"development\": {\n+      \"developmentClient\": true,\n+      \"distribution\": \"internal\",\n+      \"android\": {\n+        \"gradleCommand\": \":app:assembleDebug\"\n+      },\n+      \"ios\": {\n+        \"buildConfiguration\": \"Debug\"\n+      },\n+      \"env\": {\n+        \"ENVIRONMENT\": \"development\"\n+      },\n+      \"cache\": {\n+        \"key\": \"development-v1\"\n+      },\n+      \"extends\": \"base\",\n+      \"resourceClass\": \"medium\"\n+    },\n+    \"preview\": {\n+      \"distribution\": \"internal\"\n+    },\n+    \"production\": {\n+      \"android\": {\n+        \"buildType\": \"app-bundle\"\n+      }\n+    }\n+  },\n+  \"submit\": {\n+    \"production\": {}\n+  },\n+  \"hooks\": {\n+    \"postInstall\": \"npx expo-doctor\"\n+  },\n+  \"extras\": {\n+    \"excludePatterns\": [\n+      \"myenv/**/*\",\n+      \"**/myenv/**/*\",\n+      \"**/.env\",\n+      \"**/node_modules/**/*\"\n+    ]\n+  }\n+}\n"
+                },
+                {
+                    "date": 1736752236516,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,32 +45,4 @@\n       \"**/node_modules/**/*\"\n     ]\n   }\n }\n-{\n-  \"cli\": {\n-    \"version\": \">= 5.9.1\"\n-  },\n-  \"build\": {\n-    \"development\": {\n-      \"developmentClient\": true,\n-      \"distribution\": \"internal\",\n-      \"android\": {\n-        \"gradleCommand\": \":app:assembleDebug\"\n-      },\n-      \"ios\": {\n-        \"buildConfiguration\": \"Debug\"\n-      }\n-    },\n-    \"preview\": {\n-      \"distribution\": \"internal\"\n-    },\n-    \"production\": {\n-      \"android\": {\n-        \"buildType\": \"app-bundle\"\n-      }\n-    }\n-  },\n-  \"submit\": {\n-    \"production\": {}\n-  }\n-}\n"
+                },
+                {
+                    "date": 1736752243053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,44 +5,12 @@\n   },\n   \"build\": {\n     \"development\": {\n       \"developmentClient\": true,\n-      \"distribution\": \"internal\",\n-      \"android\": {\n-        \"gradleCommand\": \":app:assembleDebug\"\n-      },\n-      \"ios\": {\n-        \"buildConfiguration\": \"Debug\"\n-      },\n-      \"env\": {\n-        \"ENVIRONMENT\": \"development\"\n-      },\n-      \"cache\": {\n-        \"key\": \"development-v1\"\n-      },\n-      \"extends\": \"base\",\n-      \"resourceClass\": \"medium\"\n+      \"distribution\": \"internal\"\n     },\n     \"preview\": {\n       \"distribution\": \"internal\"\n     },\n-    \"production\": {\n-      \"android\": {\n-        \"buildType\": \"app-bundle\"\n-      }\n-    }\n-  },\n-  \"submit\": {\n     \"production\": {}\n-  },\n-  \"hooks\": {\n-    \"postInstall\": \"npx expo-doctor\"\n-  },\n-  \"extras\": {\n-    \"excludePatterns\": [\n-      \"myenv/**/*\",\n-      \"**/myenv/**/*\",\n-      \"**/.env\",\n-      \"**/node_modules/**/*\"\n-    ]\n   }\n }\n"
+                },
+                {
+                    "date": 1736752407210,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,36 @@\n   },\n   \"build\": {\n     \"development\": {\n       \"developmentClient\": true,\n-      \"distribution\": \"internal\"\n+      \"distribution\": \"internal\",\n+      \"android\": {\n+        \"buildType\": \"apk\"\n+      },\n+      \"env\": {\n+        \"ENVIRONMENT\": \"development\"\n+      }\n     },\n     \"preview\": {\n       \"distribution\": \"internal\"\n     },\n     \"production\": {}\n-  }\n+  },\n+  \"submit\": {\n+    \"production\": {}\n+  },\n+  \"extends\": \"eas.json\",\n+  \"build-properties\": {\n+    \"ios\": {},\n+    \"android\": {}\n+  },\n+  \"experimental\": {\n+    \"args\": {\n+      \"no-verify\": true\n+    }\n+  },\n+  \"ignorePaths\": [\n+    \"myenv/**/*\",\n+    \"../myenv/**/*\",\n+    \"**/myenv/**/*\"\n+  ]\n }\n"
+                },
+                {
+                    "date": 1736752464848,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,10 @@\n     \"development\": {\n       \"developmentClient\": true,\n       \"distribution\": \"internal\",\n       \"android\": {\n-        \"buildType\": \"apk\"\n+        \"buildType\": \"apk\",\n+        \"gradleCommand\": \":app:assembleDebug\"\n       },\n       \"env\": {\n         \"ENVIRONMENT\": \"development\"\n       }\n@@ -20,21 +21,6 @@\n     \"production\": {}\n   },\n   \"submit\": {\n     \"production\": {}\n-  },\n-  \"extends\": \"eas.json\",\n-  \"build-properties\": {\n-    \"ios\": {},\n-    \"android\": {}\n-  },\n-  \"experimental\": {\n-    \"args\": {\n-      \"no-verify\": true\n-    }\n-  },\n-  \"ignorePaths\": [\n-    \"myenv/**/*\",\n-    \"../myenv/**/*\",\n-    \"**/myenv/**/*\"\n-  ]\n+  }\n }\n"
+                }
+            ],
+            "date": 1736752134123,
+            "name": "Commit-0",
+            "content": "{\n  \"cli\": {\n    \"version\": \">= 5.9.1\"\n  },\n  \"build\": {\n    \"development\": {\n      \"developmentClient\": true,\n      \"distribution\": \"internal\",\n      \"android\": {\n        \"gradleCommand\": \":app:assembleDebug\"\n      },\n      \"ios\": {\n        \"buildConfiguration\": \"Debug\"\n      }\n    },\n    \"preview\": {\n      \"distribution\": \"internal\"\n    },\n    \"production\": {\n      \"android\": {\n        \"buildType\": \"app-bundle\"\n      }\n    }\n  },\n  \"submit\": {\n    \"production\": {}\n  }\n}\n"
+        }
+    ]
+}

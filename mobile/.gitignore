@@ -57,3 +57,7 @@ DerivedData
 /myenv/
 myenv/
 **/myenv/
+# Expo
+.expo
+dist/
+web-build/

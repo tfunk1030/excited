@@ -1,0 +1,18 @@
+{
+    "sourceFile": ".easignore",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736755657987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736755657987,
+            "name": "Commit-0",
+            "content": "# Gradle files\r\nandroid/.gradle/\r\nandroid/app/build/\r\nandroid/build/\r\n\r\n# Node modules\r\nnode_modules/\r\n\r\n# Git\r\n.git/\r\n.gitignore\r\n\r\n# IDE\r\n.idea/\r\n.vscode/\r\n\r\n# Temporary files\r\n*.log\r\n*.tmp\r\n*.temp\r\n\r\n# Environment files\r\n.env*\r\n!.env.example "
+        }
+    ]
+}

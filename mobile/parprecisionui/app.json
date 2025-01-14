@@ -1,0 +1,63 @@
+{
+  "expo": {
+    "name": "LastShot",
+    "slug": "lastshot",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1A1F2E"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.lastshot.app",
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "location",
+          "fetch"
+        ],
+        "NSLocationWhenInUseUsageDescription": "LastShot needs your location to provide accurate weather data for shot calculations.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "LastShot needs your location to provide accurate weather data for shot calculations.",
+        "UIViewControllerBasedStatusBarAppearance": false,
+        "UIStatusBarStyle": "lightContent"
+      }
+    },
+    "android": {
+      "package": "com.lastshot.app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#1A1F2E"
+      },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ],
+      "softwareKeyboardLayoutMode": "pan"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "LastShot needs your location to provide accurate weather data for shot calculations."
+        }
+      ]
+    ],
+    "scheme": "lastshot",
+    "experiments": {
+      "typedRoutes": true,
+      "tsconfigPaths": true
+    }
+  }
+}

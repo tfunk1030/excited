@@ -1,8 +1,23 @@
-const {
-  getSentryExpoConfig
-} = require("@sentry/react-native/metro");
+const { getSentryExpoConfig } = require("@sentry/react-native/metro");
+const { getDefaultConfig } = require("expo/metro-config");
+const path = require('path');
 
-/** @type {import('expo/metro-config').MetroConfig} */
 const config = getSentryExpoConfig(__dirname);
 
-module.exports = config;
+// Get the default Metro config
+const defaultConfig = getDefaultConfig(__dirname);
+
+// Merge configurations
+module.exports = {
+  ...config,
+  ...defaultConfig,
+  resolver: {
+    ...config.resolver,
+    ...defaultConfig.resolver,
+    extraNodeModules: {
+      ...config.resolver?.extraNodeModules,
+      ...defaultConfig.resolver?.extraNodeModules,
+      'expo-router': path.resolve(__dirname, 'node_modules/expo-router')
+    }
+  }
+};

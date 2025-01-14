@@ -1,92 +1,125 @@
 # Codebase Summary
 
-## Key Components and Their Interactions
-### Mobile App Components
-- Navigation System
-  * Bottom tab navigation implementation
-  * Screen management and routing
-  * Type-safe navigation patterns
+## Current Status and Issues
 
-- UI Components
-  * Safe area aware components
-  * Optimized image loading
-  * Animated screen transitions
+### Known Issues
+1. UI Implementation:
+   - Several buttons not functional
+   - Input fields need proper validation
+   - Display numbers with appropriate precision:
+     * Whole numbers: distances, altitude, pressure, humidity
+     * One decimal: temperature, feels like temperature
+     * Three decimals: air density
+   - Navigation doesn't match parprecisionui.com
 
-- Feature Modules
-  * Club management system
-  * Settings management
-  * User interface components
+2. Core Functionality:
+   - yardage_model_enhanced.py not integrated
+   - Calculations not matching web version
+   - Weather data integration incomplete
+   - Input validation missing
 
-### Component Interactions
-- Navigation flow between screens
-- Data passing between components
-- State management patterns
-- Event handling system
+3. Workflow:
+   - Structure differs from parprecisionui.com
+   - User flow needs alignment
+   - Missing key interactions
+   - Navigation needs updating
 
-## Data Flow
-### Application State
-- Component-level state management
-- Screen-to-screen data transfer
-- Navigation state handling
+## Components Structure
 
-### Data Processing
-- Club data management
-- Settings persistence
-- Cache management
-- Image optimization
+### Navigation (Needs Updates)
+- Drawer navigation implemented but needs revision
+- Navigation flow differs from web version
+- Menu structure needs alignment
+
+### Screens (Require Fixes)
+#### Shot Calculator
+- Target distance slider (needs validation)
+- Environmental adjustments (needs decimal fix)
+- Total adjustment (needs yardage_model_enhanced)
+- Club recommendations (incomplete)
+
+#### Weather
+- Current conditions (needs decimal fix)
+- Temperature display (needs validation)
+- Grid layout (needs proper data)
+- Sensor integration (incomplete)
+
+#### Wind Calculator
+- Compass (needs interaction fixes)
+- Speed controls (needs validation)
+- Target yardage (needs proper handling)
+- Effect calculation (needs implementation)
+
+#### Settings
+- Unit preferences (needs persistence)
+- Club management (needs validation)
+- Data storage (not implemented)
+- Input handling (needs fixes)
+
+## Data Flow (Needs Implementation)
+- Local state management incomplete
+- Environmental data not integrated
+- Club data not persistent
+- Settings not synchronized
+- Calculations not using yardage_model_enhanced
 
 ## External Dependencies
-### Libraries
-Current major dependencies:
-- React Native (targeting 0.76.x)
-- React Navigation (Bottom Tabs v6.5.11)
-- React Native Safe Area Context (v4.8.2)
-- React Native Screens (v4.4.0)
-- React Native Reanimated (v3.6.1)
-- React Native Fast Image (v8.6.3)
+### Core Dependencies
+- expo: ^52.0.25
+- expo-router: ~4.0.16
+- react-native-reanimated: ~3.16.1
+- react-native-gesture-handler: ~2.20.2
+- @react-native-community/slider: 4.5.5
 
-For detailed version analysis and update recommendations, see [version_updates.md](version_updates.md)
+### Required Implementations
+- yardage_model_enhanced integration
+- Proper data validation
+- Error handling
+- Input field management
+- Decimal formatting
 
-### Reference Configurations
-The project maintains validated reference configurations in:
-- mobile/android/reference_configs/
-  * Build configurations (gradle files)
-  * Native code templates
-  * Build settings
-  * Version compatibility matrix
-  * Common issues and solutions
+## Build and Development
+### Development
+- Using bun for package management
+- Local development with expo-cli
+- TypeScript for type checking
 
-Current customizations from reference templates:
-- Using react-native-gradle-plugin 0.76.6
-- Java 17 environment for modern Android development
-- ProGuard rules customized for current native modules
+### Production (Not Ready)
+- Build process needs review
+- Testing not implemented
+- Error handling missing
+- Performance not optimized
 
-Version upgrade tracking:
-- Initial setup: Gradle 7.3.1, AGP 7.3.1, Kotlin 1.7.20
-- Current target: Gradle 8.10.2, Kotlin 1.9.24
-- Future planned: Complete React Native 0.76.x upgrade
+## Project Structure
+```
+mobile/parprecisionui/
+├── app/                    # Main application directory
+│   ├── components/         # UI components
+│   ├── constants/         # Application constants
+│   ├── services/          # API and business logic
+│   └── types/            # TypeScript definitions
+├── assets/               # Static assets
+└── scripts/              # Build and utility scripts
+```
 
-### APIs
-- Native module interfaces
-- Platform-specific APIs
-- Third-party service integrations
+### Structural Changes Planned
+- Consolidating src/ directory into app/ for clearer structure
+- Moving shared/types.ts into app/types.ts
+- Removing duplicate theme files
+- Removing weather.tsx (functionality moved to index.tsx)
 
-## Recent Significant Changes
-- Version management system implementation
-- Build configuration optimization
-- Documentation structure enhancement
-- Gradle version upgrade planning
-- Build script improvements
-- Native code template updates
+## Next Steps
+1. Integrate yardage_model_enhanced.py
+2. Fix decimal place formatting
+3. Implement proper input validation
+4. Update navigation to match web version
+5. Add proper error handling
+6. Implement data persistence
+7. Add comprehensive testing
 
-## User Feedback Integration
-- Build process optimization
-- Error handling improvements
-- Performance enhancements
-- Configuration simplification
-
-## Additional Documentation
-- [version_updates.md](version_updates.md): Detailed analysis of current dependency versions, available updates, and recommendations
-- [project_transfer_guide.md](project_transfer_guide.md): Comprehensive guide for transferring and setting up the project on a new computer
-- [android_build_fixes.md](android_build_fixes.md): Solutions for common Android build issues
-- [androidstudiosetup.md](androidstudiosetup.md): Android Studio configuration guide
+## Notes
+- All calculations must use yardage_model_enhanced
+- UI must match parprecisionui.com exactly
+- All numbers should display 1 decimal place
+- Need to implement proper input validation
+- Navigation structure needs complete revision

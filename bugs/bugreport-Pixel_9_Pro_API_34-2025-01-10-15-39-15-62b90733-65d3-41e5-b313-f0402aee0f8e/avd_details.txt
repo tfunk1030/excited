@@ -1,0 +1,50 @@
+Name: Pixel_9_Pro_API_34
+CPU/ABI: x86_64
+Path: C:\Users\tfunk\.android\avd\Pixel_9_Pro_API_34.avd
+Target: google_apis_playstore [Google Play] (API level 34)
+Skin: pixel_9_pro
+SD Card: 512M
+AvdId: Pixel_9_Pro_API_34
+PlayStore.enabled: true
+avd.ini.displayname: Pixel 9 Pro API 34
+avd.ini.encoding: UTF-8
+disk.dataPartition.size: 6442450944
+fastboot.chosenSnapshotFile: 
+fastboot.forceChosenSnapshotBoot: no
+fastboot.forceColdBoot: no
+fastboot.forceFastBoot: yes
+hw.accelerometer: yes
+hw.arc: false
+hw.audioInput: yes
+hw.battery: yes
+hw.camera.back: virtualscene
+hw.camera.front: emulated
+hw.cpu.ncore: 4
+hw.dPad: no
+hw.device.hash2: MD5:73e7b35d09e3a8055043aca4688e0dad
+hw.device.manufacturer: Google
+hw.device.name: pixel_9_pro
+hw.gps: yes
+hw.gpu.enabled: yes
+hw.gpu.mode: auto
+hw.initialOrientation: portrait
+hw.keyboard: yes
+hw.lcd.density: 480
+hw.lcd.height: 2856
+hw.lcd.width: 1280
+hw.mainKeys: no
+hw.ramSize: 11548
+hw.sdCard: yes
+hw.sensors.orientation: yes
+hw.sensors.proximity: yes
+hw.trackBall: no
+image.sysdir.1: system-images\android-34\google_apis_playstore\x86_64\
+runtime.network.latency: none
+runtime.network.speed: full
+showDeviceFrame: yes
+skin.dynamic: yes
+tag.display: Google Play
+tag.displaynames: Google Play
+tag.id: google_apis_playstore
+tag.ids: google_apis_playstore
+vm.heapSize: 256

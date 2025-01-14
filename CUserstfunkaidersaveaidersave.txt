@@ -1,0 +1,26 @@
+/drop
+/add       .gitignore
+/add       backend/.gitignore
+/add       cline_docs/android_build_fixes.md
+/add       cline_docs/androidupdateproposal.md
+/add       cline_docs/codebaseSummary.md
+/add       cline_docs/currentTask.md
+/add       cline_docs/projectRoadmap.md
+/add       cline_docs/project_transfer_guide.md
+/add       cline_docs/techStack.md
+/add       cline_docs/version_updates.md
+/add       mobile/.gitignore
+/add       mobile/android/README.md
+/add       mobile/android/UPGRADE_TO_V8.md
+/add       mobile/android/build_gradle_plugin.ps1
+/add       mobile/android/clean_and_rebuild.ps1
+/add       mobile/android/force_java17_build.ps1
+/add       mobile/android/kill_java_and_rebuild.ps1
+/add       mobile/android/local.properties
+/add       mobile/android/rebuild_with_cache_clear.ps1
+/add       mobile/android/reference_configs/ReactNativeFlipper.java
+/add       mobile/android/reference_configs/version_requirements.md
+/add       mobile/android/run_after_metro.ps1
+/add       mobile/metro.config.js
+/add       mobile/package.json
+/add       mobile/userInstructions/setup.md
